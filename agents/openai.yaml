@@ -1,0 +1,4 @@
+interface:
+  display_name: "CD HTML Design"
+  short_description: "Create standalone HTML in the CD visual language"
+  default_prompt: "Use $cd-design-skill to design a responsive standalone HTML page without reusing reference content."

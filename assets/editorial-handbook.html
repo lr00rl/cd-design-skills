@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Field Research Handbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cd-bg: #f5f6fa;
+      --cd-card: #ffffff;
+      --cd-ink: #11141c;
+      --cd-ink-2: #2a2e3b;
+      --cd-ink-3: #5a5d72;
+      --cd-ink-4: #a4a7b5;
+      --cd-line: #c7ccdb;
+      --cd-mist: #eceff7;
+      --cd-soft: #eaecf7;
+      --cd-navy: #100d35;
+      --cd-violet: #5b54ef;
+      --cd-blue: #1e79c2;
+      --cd-teal: #0defc8;
+      --cd-periwinkle: #b5b5ff;
+      --cd-error: #c0392b;
+      --cd-gradient: linear-gradient(90deg, #0defc8 0%, #1e79c2 70%, #5b54ef 100%);
+      --cd-radius: 2px;
+      --cd-sidebar: 280px;
+      --cd-display: "Sora", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --cd-body: "Hanken Grotesk", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --cd-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--cd-bg);
+      color: var(--cd-ink);
+      font-family: var(--cd-body);
+      font-size: 16.5px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: var(--cd-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    :focus-visible {
+      outline: 3px solid var(--cd-blue);
+      outline-offset: 3px;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--cd-ink);
+      font-family: var(--cd-display);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+    }
+
+    .layout { display: flex; align-items: flex-start; }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      width: var(--cd-sidebar);
+      height: 100vh;
+      flex: 0 0 var(--cd-sidebar);
+      overflow-y: auto;
+      border-right: 1px solid var(--cd-line);
+      background: var(--cd-card);
+      padding: 26px 0 40px;
+    }
+
+    .brand {
+      margin-bottom: 14px;
+      padding: 0 26px 22px;
+      border-bottom: 1px solid var(--cd-line);
+    }
+
+    .brand__name {
+      color: var(--cd-violet);
+      font-family: var(--cd-display);
+      font-size: 23px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.03em;
+    }
+
+    .brand__name span { color: var(--cd-blue); }
+
+    .brand__meta, .toc__group, .kicker, .label, .sequence__number, .meta-row {
+      font-family: var(--cd-mono);
+    }
+
+    .brand__meta {
+      margin-top: 9px;
+      color: var(--cd-ink-3);
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .toc__group {
+      padding: 16px 26px 6px;
+      color: var(--cd-ink-4);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 26px 8px 23px;
+      border-left: 3px solid transparent;
+      color: var(--cd-ink-3);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .toc a:hover { background: var(--cd-soft); color: var(--cd-violet); text-decoration: none; }
+    .toc a.is-active { border-left-color: var(--cd-blue); background: var(--cd-soft); color: var(--cd-violet); font-weight: 600; }
+
+    main { min-width: 0; flex: 1 1 auto; }
+    .wrap { width: min(100%, 880px); margin-inline: auto; padding-inline: 40px; }
+
+    .cover {
+      position: relative;
+      display: flex;
+      min-height: 88vh;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      padding: 96px 40px 80px;
+      border-bottom: 4px solid;
+      border-image: var(--cd-gradient) 1;
+      background: var(--cd-navy);
+      color: #ffffff;
+    }
+
+    .cover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(#ffffff 1px, transparent 1px),
+        linear-gradient(90deg, #ffffff 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    .cover::after {
+      content: "";
+      position: absolute;
+      top: -160px;
+      right: -160px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 60% 40%, rgb(91 84 239 / 48%), transparent 60%),
+        radial-gradient(circle at 30% 70%, rgb(13 239 200 / 28%), transparent 55%);
+      pointer-events: none;
+    }
+
+    .cover__inner { position: relative; z-index: 1; width: min(100%, 880px); margin-inline: auto; }
+
+    .cover__mark {
+      margin: 0 0 24px;
+      color: #ffffff;
+      font-family: var(--cd-display);
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .cover__mark span { color: var(--cd-teal); }
+
+    .kicker {
+      margin: 0 0 12px;
+      color: var(--cd-violet);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .cover .kicker { color: var(--cd-teal); }
+    .cover h1 { margin: 0 0 12px; color: #ffffff; font-size: 44px; font-weight: 800; letter-spacing: -.03em; }
+
+    .cover__lead { max-width: 680px; margin: 0; color: #eeeffa; font-size: 19px; line-height: 1.6; }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 26px;
+      margin-top: 42px;
+      padding-top: 20px;
+      border-top: 1px solid rgb(255 255 255 / 22%);
+      color: #bcbfe4;
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+
+    .meta-row strong { color: #ffffff; font-weight: 500; }
+
+    .chapter {
+      padding: 74px 0 30px;
+      border-top: 1px solid var(--cd-line);
+      scroll-margin-top: 20px;
+    }
+
+    .chapter:first-of-type { border-top: 0; }
+    .chapter__head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; }
+    .chapter__number { color: var(--cd-blue); font-family: var(--cd-display); font-size: 20px; font-weight: 800; }
+    .chapter h2 { margin: 0 0 18px; font-size: 34px; }
+    .chapter h3 { margin: 42px 0 12px; font-size: 22px; }
+    .chapter h4 { margin: 26px 0 8px; font-size: 16.5px; }
+    .chapter p { margin: 13px 0; color: var(--cd-ink-2); }
+    .lead { color: var(--cd-ink); font-size: 18.5px; line-height: 1.6; }
+
+    .box {
+      margin: 22px 0;
+      padding: 18px 20px;
+      border: 1px solid var(--cd-line);
+      border-left: 4px solid var(--cd-violet);
+      border-radius: var(--cd-radius);
+      background: var(--cd-card);
+    }
+
+    .box--soft { background: var(--cd-soft); }
+    .box--error { border-left-color: var(--cd-error); background: #fbeeec; }
+
+    .label {
+      margin-bottom: 7px;
+      color: var(--cd-violet);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .box--error .label { color: var(--cd-error); }
+    .box p:first-of-type { margin-top: 0; }
+    .box p:last-child { margin-bottom: 0; }
+
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; min-width: 680px; margin: 20px 0; border-collapse: collapse; font-size: 14.5px; }
+    th, td { padding: 9px 12px; border: 1px solid var(--cd-line); text-align: left; vertical-align: top; }
+    th { background: var(--cd-soft); color: var(--cd-violet); font-family: var(--cd-mono); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    td { color: var(--cd-ink-2); }
+    tbody tr:nth-child(even) td { background: var(--cd-mist); }
+
+    .sequence {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 24px 0;
+    }
+
+    .sequence__item {
+      padding: 14px 14px 16px;
+      border: 1px solid var(--cd-line);
+      border-top: 3px solid var(--cd-violet);
+      border-radius: var(--cd-radius);
+      background: var(--cd-card);
+    }
+
+    .sequence__number { color: var(--cd-blue); font-size: 11px; font-weight: 700; }
+    .sequence__title { margin: 3px 0 7px; font-family: var(--cd-display); font-size: 16px; font-weight: 700; }
+    .sequence__text { color: var(--cd-ink-3); font-size: 13px; line-height: 1.5; }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 20px 0;
+      overflow: hidden;
+      border: 1px solid var(--cd-line);
+      border-radius: var(--cd-radius);
+    }
+
+    .comparison__side { padding: 16px 18px; }
+    .comparison__side:first-child { border-right: 1px solid var(--cd-line); background: var(--cd-soft); }
+    .comparison__side:last-child { background: #fbeeec; }
+    .comparison h4 { margin-top: 0; font-family: var(--cd-mono); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+
+    .decision-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+
+    .decision {
+      padding: 15px 17px;
+      border: 1px solid var(--cd-line);
+      border-left: 4px solid var(--cd-blue);
+      border-radius: var(--cd-radius);
+      background: var(--cd-card);
+    }
+
+    .decision__number { color: var(--cd-blue); font-family: var(--cd-mono); font-size: 11px; font-weight: 700; }
+    .decision__title { margin: 4px 0 5px; font-family: var(--cd-display); font-size: 16px; font-weight: 700; }
+    .decision__text { color: var(--cd-ink-3); font-size: 13.5px; }
+
+    .js .cd-reveal { opacity: 0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
+    .js .cd-reveal.is-visible { opacity: 1; transform: none; }
+
+    footer {
+      position: relative;
+      margin-top: 60px;
+      overflow: hidden;
+      padding: 46px 40px;
+      background: var(--cd-navy);
+      color: #bcbfe4;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .07;
+      background-image:
+        linear-gradient(#ffffff 1px, transparent 1px),
+        linear-gradient(90deg, #ffffff 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    .footer__inner { position: relative; width: min(100%, 880px); margin-inline: auto; }
+    .footer__title { color: #ffffff; font-family: var(--cd-display); font-size: 22px; font-weight: 800; }
+    footer p { margin: 8px 0; color: #9ea0c6; font-size: 13px; }
+
+    @media (max-width: 920px) {
+      .layout { display: block; }
+      .sidebar { position: static; width: 100%; height: auto; border-right: 0; border-bottom: 1px solid var(--cd-line); }
+      .toc { display: flex; flex-wrap: wrap; }
+      .toc__group { width: 100%; }
+      .toc a { flex: 1 1 210px; }
+      .wrap { padding-inline: 22px; }
+      .cover { min-height: 0; padding: 64px 22px 54px; }
+      .cover__mark { font-size: 46px; }
+      .cover h1 { font-size: 32px; }
+      .sequence { grid-template-columns: 1fr 1fr; }
+      .decision-grid, .comparison { grid-template-columns: 1fr; }
+      .comparison__side:first-child { border-right: 0; border-bottom: 1px solid var(--cd-line); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .cd-reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body data-cd-mode="editorial-handbook">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand__name">Field <span>Notes</span></div>
+        <div class="brand__meta">Research handbook · R1</div>
+      </div>
+      <nav class="toc" aria-label="Chapter navigation">
+        <div class="toc__group">Guide</div>
+        <a class="is-active" href="#cover" aria-current="location">Cover · How to use</a>
+        <div class="toc__group">Method</div>
+        <a href="#chapter-1">1 · Frame the question</a>
+        <a href="#chapter-2">2 · Gather evidence</a>
+        <a href="#chapter-3">3 · Synthesize findings</a>
+        <div class="toc__group">Reference</div>
+        <a href="#chapter-4">4 · Field checklist</a>
+      </nav>
+    </aside>
+
+    <main>
+      <header class="cover" id="cover">
+        <div class="cover__inner">
+          <p class="kicker">Observe · Record · Compare · Learn</p>
+          <div class="cover__mark">Field <span>Notes</span></div>
+          <h1>Field Research Handbook</h1>
+          <p class="cover__lead">A neutral demonstration of a chaptered editorial handbook. Replace every example and label with the user's target content before delivery.</p>
+          <div class="meta-row" aria-label="Handbook metadata">
+            <span>Edition <strong>R1</strong></span>
+            <span>Format <strong>Standalone HTML</strong></span>
+            <span>Audience <strong>Field teams</strong></span>
+          </div>
+        </div>
+      </header>
+
+      <div class="wrap">
+        <section class="chapter" aria-labelledby="use-title">
+          <p class="kicker">How to use</p>
+          <h2 id="use-title">Read for decisions, not decoration</h2>
+          <p class="lead">Each chapter moves from orientation to evidence. Ordinary prose remains flat; bordered structures appear only when the information type changes.</p>
+          <div class="box box--soft cd-reveal">
+            <div class="label">Working rule</div>
+            <p>Capture what happened, separate observation from interpretation, and record the next decision explicitly.</p>
+          </div>
+        </section>
+
+        <section class="chapter" id="chapter-1">
+          <div class="chapter__head"><span class="chapter__number">01</span><span class="kicker">Framing</span></div>
+          <h2>Frame the question</h2>
+          <p class="lead">Define the decision the research must support before choosing participants, settings, or evidence methods.</p>
+          <h3>Start with one decision</h3>
+          <p>A useful question names the actor, the situation, and the choice that follows. Keep the wording open enough to discover unexpected behavior.</p>
+          <div class="decision-grid cd-reveal">
+            <article class="decision"><div class="decision__number">STEP 01</div><div class="decision__title">State the decision</div><div class="decision__text">Write the choice the team must make after the study.</div></article>
+            <article class="decision"><div class="decision__number">STEP 02</div><div class="decision__title">Set boundaries</div><div class="decision__text">Define who, where, and which situations belong in scope.</div></article>
+          </div>
+        </section>
+
+        <section class="chapter" id="chapter-2">
+          <div class="chapter__head"><span class="chapter__number">02</span><span class="kicker">Evidence</span></div>
+          <h2>Gather evidence</h2>
+          <p class="lead">Use a short sequence of preparation, observation, capture, and debrief so evidence remains comparable across sessions.</p>
+          <div class="sequence cd-reveal" aria-label="Research sequence">
+            <article class="sequence__item"><div class="sequence__number">01 / PREPARE</div><div class="sequence__title">Plan</div><div class="sequence__text">Confirm context, consent, and the evidence format.</div></article>
+            <article class="sequence__item"><div class="sequence__number">02 / OBSERVE</div><div class="sequence__title">Watch</div><div class="sequence__text">Record actions before assigning explanations.</div></article>
+            <article class="sequence__item"><div class="sequence__number">03 / CAPTURE</div><div class="sequence__title">Note</div><div class="sequence__text">Preserve time, setting, signal, and uncertainty.</div></article>
+            <article class="sequence__item"><div class="sequence__number">04 / DEBRIEF</div><div class="sequence__title">Reflect</div><div class="sequence__text">Separate fact, inference, and open question.</div></article>
+          </div>
+          <div class="box box--error cd-reveal">
+            <div class="label">Stop condition</div>
+            <p>Pause the session when consent, safety, or confidentiality becomes unclear.</p>
+          </div>
+        </section>
+
+        <section class="chapter" id="chapter-3">
+          <div class="chapter__head"><span class="chapter__number">03</span><span class="kicker">Synthesis</span></div>
+          <h2>Synthesize findings</h2>
+          <p class="lead">Compare evidence across sessions, keep contrary signals visible, and connect each finding to the decision it informs.</p>
+          <div class="comparison cd-reveal">
+            <div class="comparison__side"><h4>Keep</h4><p>Direct observations, recurring patterns, disconfirming cases, and confidence labels.</p></div>
+            <div class="comparison__side"><h4>Avoid</h4><p>Single-session certainty, unlabeled inference, decorative charts, and unsupported totals.</p></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Evidence</th><th>Pattern</th><th>Confidence</th><th>Decision use</th></tr></thead>
+              <tbody>
+                <tr><td>Observed sequence</td><td>Repeated interruption</td><td>Medium</td><td>Revise the handoff</td></tr>
+                <tr><td>Session notes</td><td>Unclear terminology</td><td>High</td><td>Simplify labels</td></tr>
+                <tr><td>Contrary case</td><td>Expert shortcut</td><td>Low</td><td>Test separately</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="chapter" id="chapter-4">
+          <div class="chapter__head"><span class="chapter__number">04</span><span class="kicker">Reference</span></div>
+          <h2>Field checklist</h2>
+          <p class="lead">Close with a compact reference that supports the next session without repeating the full handbook.</p>
+          <div class="box cd-reveal">
+            <div class="label">Before leaving</div>
+            <p>Confirm that evidence is labeled, sensitive material is handled correctly, open questions are visible, and the next decision has an owner.</p>
+          </div>
+        </section>
+      </div>
+
+      <footer>
+        <div class="footer__inner">
+          <div class="footer__title">Field Notes</div>
+          <p>Neutral CD editorial-handbook starter · Replace all demonstration content before delivery.</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.documentElement.classList.add("js");
+
+    const links = [...document.querySelectorAll('.toc a[href^="#"]')];
+    const linkById = new Map(links.map((link) => [link.getAttribute("href").slice(1), link]));
+    const sections = [...linkById.keys()].map((id) => document.getElementById(id)).filter(Boolean);
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        links.forEach((link) => {
+          const current = link === linkById.get(entry.target.id);
+          link.classList.toggle("is-active", current);
+          if (current) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        });
+      });
+    }, { rootMargin: "-10% 0px -80% 0px", threshold: 0 });
+
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+
+    document.querySelectorAll(".cd-reveal").forEach((element) => revealObserver.observe(element));
+  </script>
+</body>
+</html>

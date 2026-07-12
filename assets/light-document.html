@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equipment Setup Guide</title>
+  <style>
+    :root {
+      --cd-bg: #f7f8fa;
+      --cd-card: #ffffff;
+      --cd-ink: #15181d;
+      --cd-sub: #5b626e;
+      --cd-muted: #8b8f97;
+      --cd-line: #e6e8ec;
+      --cd-blue: #185fa5;
+      --cd-blue-bg: #e6f1fb;
+      --cd-blue-text: #0c447c;
+      --cd-green: #3b6d11;
+      --cd-green-bg: #eaf3de;
+      --cd-green-text: #27500a;
+      --cd-amber: #854f0b;
+      --cd-amber-bg: #faeeda;
+      --cd-amber-text: #633806;
+      --cd-red: #a32d2d;
+      --cd-red-bg: #fcebeb;
+      --cd-red-text: #791f1f;
+      --cd-radius: 12px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--cd-bg);
+      color: var(--cd-ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--cd-blue); }
+
+    :focus-visible {
+      outline: 3px solid var(--cd-blue);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      width: min(calc(100% - 44px), 1040px);
+      margin-inline: auto;
+    }
+
+    .hero {
+      padding: 36px 0 26px;
+      background: var(--cd-card);
+      border-bottom: 1px solid var(--cd-line);
+    }
+
+    .eyebrow {
+      margin: 0 0 7px;
+      color: var(--cd-blue);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 7px;
+      font-size: 28px;
+      font-weight: 550;
+      line-height: 1.2;
+      letter-spacing: .01em;
+    }
+
+    .hero__lead {
+      max-width: 720px;
+      margin-bottom: 20px;
+      color: var(--cd-sub);
+      font-size: 15.5px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 650px;
+    }
+
+    .stat {
+      padding: 13px 16px;
+      border-radius: var(--cd-radius);
+      background: var(--cd-bg);
+    }
+
+    .stat strong { display: block; font-size: 22px; font-weight: 550; line-height: 1.25; }
+    .stat span { color: var(--cd-sub); font-size: 12.5px; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--cd-line);
+      background: rgb(247 248 250 / 93%);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav__inner {
+      display: flex;
+      gap: 6px;
+      padding-block: 9px;
+      overflow-x: auto;
+    }
+
+    .nav a {
+      flex: 0 0 auto;
+      padding: 5px 10px;
+      border-radius: 8px;
+      color: var(--cd-sub);
+      font-size: 12.5px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav a:hover { background: var(--cd-card); color: var(--cd-ink); }
+
+    main section {
+      padding: 38px 0 10px;
+      border-bottom: 1px solid var(--cd-line);
+      scroll-margin-top: 62px;
+    }
+
+    main section:last-child { border-bottom: 0; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 5px;
+      font-size: 21px;
+      font-weight: 550;
+      line-height: 1.3;
+    }
+
+    .section-number {
+      display: inline-grid;
+      width: 26px;
+      height: 26px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 7px;
+      background: var(--cd-ink);
+      color: #ffffff;
+      font-size: 12px;
+    }
+
+    .lead { max-width: 780px; margin-bottom: 18px; color: var(--cd-sub); font-size: 14.5px; }
+
+    .split, .grid, .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .panel, .card, .faq {
+      padding: 16px 18px;
+      border: 1px solid var(--cd-line);
+      border-radius: var(--cd-radius);
+      background: var(--cd-card);
+    }
+
+    .panel--accent { border-color: #cfe0f4; background: var(--cd-blue-bg); }
+
+    .panel h3, .card h3, .faq h3 {
+      margin-bottom: 7px;
+      font-size: 15.5px;
+      font-weight: 550;
+    }
+
+    .panel p, .card p, .faq p { margin-bottom: 0; color: var(--cd-sub); font-size: 13.5px; }
+
+    .clean-list { margin: 10px 0 0; padding: 0; list-style: none; }
+    .clean-list li { padding: 7px 0; border-top: 1px solid var(--cd-line); }
+    .clean-list li:first-child { border-top: 0; }
+
+    .steps {
+      display: flex;
+      padding: 6px 2px 16px;
+      overflow-x: auto;
+    }
+
+    .step {
+      position: relative;
+      width: 118px;
+      flex: 0 0 118px;
+      padding-inline: 4px;
+      text-align: center;
+    }
+
+    .step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 24px;
+      right: -2px;
+      width: 12px;
+      border-top: 2px dotted var(--cd-line);
+    }
+
+    .step__marker {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 8px;
+      place-items: center;
+      border: 1px solid var(--cd-line);
+      border-radius: 14px;
+      background: var(--cd-card);
+      color: var(--cd-sub);
+      font-weight: 600;
+    }
+
+    .step--active .step__marker { border-color: var(--cd-blue); background: var(--cd-blue); color: #fff; }
+    .step__label { font-size: 13px; font-weight: 550; line-height: 1.35; }
+    .step__meta { margin-top: 2px; color: var(--cd-muted); font-size: 11.5px; }
+
+    .callout {
+      display: flex;
+      gap: 11px;
+      margin-block: 14px;
+      padding: 13px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .callout strong { flex: 0 0 auto; }
+    .callout--info { background: var(--cd-blue-bg); color: var(--cd-blue-text); }
+    .callout--warn { background: var(--cd-amber-bg); color: var(--cd-amber-text); }
+    .callout--stop { background: var(--cd-red-bg); color: var(--cd-red-text); }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--cd-line);
+      border-radius: var(--cd-radius);
+      background: var(--cd-card);
+    }
+
+    table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 13.5px; }
+    th, td { padding: 10px 14px; border-bottom: 1px solid var(--cd-line); text-align: left; vertical-align: top; }
+    th { background: var(--cd-bg); color: var(--cd-sub); font-size: 12.5px; font-weight: 550; white-space: nowrap; }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:hover td { background: #fcfcfd; }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 550;
+      white-space: nowrap;
+    }
+
+    .pill--ready { background: var(--cd-green-bg); color: var(--cd-green-text); }
+    .pill--review { background: var(--cd-amber-bg); color: var(--cd-amber-text); }
+
+    footer { padding: 26px 0 52px; color: var(--cd-muted); font-size: 12.5px; }
+
+    @media (max-width: 760px) {
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .split, .grid, .faq-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body data-cd-mode="light-document">
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">FIELD GUIDE · REVISION 1</p>
+      <h1>Equipment Setup Guide</h1>
+      <p class="hero__lead">A neutral demonstration of a compact standalone guide. Replace this copy and its information model with the user's target material.</p>
+      <div class="stats" aria-label="Guide summary">
+        <div class="stat"><strong>4</strong><span>preparation checks</span></div>
+        <div class="stat"><strong>6</strong><span>sequence stages</span></div>
+        <div class="stat"><strong>1</strong><span>final verification</span></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Section navigation">
+    <div class="wrap nav__inner">
+      <a href="#overview">Overview</a>
+      <a href="#prepare">Prepare</a>
+      <a href="#sequence">Sequence</a>
+      <a href="#reference">Reference</a>
+      <a href="#troubleshoot">Troubleshoot</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="overview">
+      <h2 class="section-title"><span class="section-number">1</span>Overview</h2>
+      <p class="lead">Orient the reader with one concise summary, then separate what they decide from what the system or process handles.</p>
+      <div class="split">
+        <article class="panel panel--accent">
+          <h3>Reader decisions</h3>
+          <ul class="clean-list">
+            <li>Confirm the installation location</li>
+            <li>Select the operating profile</li>
+            <li>Approve the final verification</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <h3>Automatic checks</h3>
+          <ul class="clean-list">
+            <li>Detect available power</li>
+            <li>Validate the local connection</li>
+            <li>Record the completion state</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="prepare">
+      <h2 class="section-title"><span class="section-number">2</span>Prepare</h2>
+      <p class="lead">Use cards for distinct evidence types, not as wrappers for every paragraph.</p>
+      <div class="grid">
+        <article class="card"><h3>Workspace</h3><p>Keep the surface dry, stable, and within reach of the required connection.</p></article>
+        <article class="card"><h3>Parts</h3><p>Lay out the unit, cable, adapter, and fasteners before beginning.</p></article>
+      </div>
+      <div class="callout callout--info"><strong>Note</strong><span>Complete the preparation checks before moving into the sequence.</span></div>
+    </section>
+
+    <section id="sequence">
+      <h2 class="section-title"><span class="section-number">3</span>Sequence</h2>
+      <p class="lead">Keep fixed-width stages readable and let the rail scroll horizontally on narrow screens.</p>
+      <div class="steps" aria-label="Setup sequence">
+        <div class="step step--active"><div class="step__marker">01</div><div class="step__label">Inspect</div><div class="step__meta">current</div></div>
+        <div class="step"><div class="step__marker">02</div><div class="step__label">Place</div><div class="step__meta">next</div></div>
+        <div class="step"><div class="step__marker">03</div><div class="step__label">Connect</div><div class="step__meta">queued</div></div>
+        <div class="step"><div class="step__marker">04</div><div class="step__label">Configure</div><div class="step__meta">queued</div></div>
+        <div class="step"><div class="step__marker">05</div><div class="step__label">Test</div><div class="step__meta">queued</div></div>
+        <div class="step"><div class="step__marker">06</div><div class="step__label">Record</div><div class="step__meta">queued</div></div>
+      </div>
+    </section>
+
+    <section id="reference">
+      <h2 class="section-title"><span class="section-number">4</span>Reference</h2>
+      <p class="lead">Use compact tables for data that benefits from row and column comparison.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Checkpoint</th><th>Expected signal</th><th>State</th><th>Next action</th></tr></thead>
+          <tbody>
+            <tr><td>Power</td><td>Steady indicator</td><td><span class="pill pill--ready">Ready</span></td><td>Continue</td></tr>
+            <tr><td>Connection</td><td>Local link detected</td><td><span class="pill pill--ready">Ready</span></td><td>Configure</td></tr>
+            <tr><td>Verification</td><td>Pending reader check</td><td><span class="pill pill--review">Review</span></td><td>Confirm result</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="troubleshoot">
+      <h2 class="section-title"><span class="section-number">5</span>Troubleshoot</h2>
+      <p class="lead">Reserve warning and stop treatments for conditions that change the reader's next action.</p>
+      <div class="callout callout--warn"><strong>Check</strong><span>If the indicator pulses, reseat the cable once and repeat the local test.</span></div>
+      <div class="callout callout--stop"><strong>Stop</strong><span>Disconnect power if the enclosure becomes unusually warm.</span></div>
+      <div class="faq-grid">
+        <article class="faq"><h3>Why is the local link absent?</h3><p>Confirm that the connection is fully seated and the selected port is enabled.</p></article>
+        <article class="faq"><h3>When is setup complete?</h3><p>Finish when every checkpoint is ready and the final result has been recorded.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">Neutral CD light-document starter · Replace all demonstration content before delivery.</footer>
+
+  <script>
+    document.querySelectorAll('.nav a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const target = document.querySelector(link.getAttribute("href"));
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  </script>
+</body>
+</html>
