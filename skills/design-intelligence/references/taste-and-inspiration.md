@@ -58,7 +58,8 @@ Ira Glass：每周固定产出一件。量变追平品味鸿沟，没有捷径�
 - **seesaw.website** — 每日更新、按**行业**分类（AI/营销/加密/作品集）——"一家可信的 X 公司长什么样"。
 
 ### 交互与动效工艺
-- **interfaces.dev** — "关于构建优秀界面的设计工程杂志"：动画、排版、布局、色彩（编辑性内容，非画廊）。
+- **interfaces.dev** — Jakub Krehel（前 OpenSea 设计工程师）的付费设计工程杂志（$7.99/月，3 期免费试读）：动画、排版、OKLCH、光学对齐。核心主张："AI 时代快速上线不再是优势，差异化在于极致用心的构建。" 每期配套一个 agent skill。
+- **github.com/jakubkrehel/skills** — 上面杂志的开源 skill 提炼（MIT）：better-ui / better-typography / better-colors，`npx skills add jakubkrehel/skills` 可装；其精确数值已吸收进本 skill 的 `craft-details.md`。配套工具 **oklch.fyi**（OKLCH 配色生成器）。
 - **interfacecraft.dev《Means & Methods》** — joshpuckett（前 Dropbox 设计负责人）：11 章 100+ 个界面设计精进主题，带交互示例和代码。
 - **uilabs.dev** — Mariana Castilho 的可把玩实验组件。
 - **60fps.design** — 专收 app 动效。

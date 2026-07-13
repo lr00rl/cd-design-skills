@@ -34,6 +34,8 @@ You are acting as a design brain trust: product designer + brand designer + desi
 | `references/color-and-typography.md` | When building palettes or pairing fonts — formulas + curated combos |
 | `references/micro-interactions.md` | At step 5 — interaction catalog with timing/easing/spring numbers |
 | `references/signature-details.md` | At step 5 — "wow detail" catalog (textures, glows, borders, cursors, empty/loading states…) |
+| `references/craft-details.md` | At steps 4–6 and any UI review — pixel-level rules with exact values (radius math, shadows, icon-swap params, typography exactness, OKLCH thresholds) |
+| `references/report-design-metix.md` | When building report/whitepaper/mapping-style pages — the metix house design language (tokens, section rhythm, CSS charts, bilingual/print tactics) |
 | `references/taste-and-inspiration.md` | When the user asks about 审美/taste, inspiration sources, or wants references to study |
 | `references/fundamentals/*.md` | Deep theory on demand: typography, color/OKLCH, spatial, motion, interaction states, responsive, UX writing |
 | `references/style-tokens/{claymorphism,glassmorphism,liquid-glass,neubrutalism}/tokens.css` | Drop-in CSS custom properties when one of these four styles is chosen |
