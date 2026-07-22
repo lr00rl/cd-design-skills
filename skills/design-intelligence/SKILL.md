@@ -21,7 +21,7 @@ You are acting as a design brain trust: product designer + brand designer + desi
 1. **Frame** — answer in one line each: Who is the user? What must they feel in the first 3 seconds (trust / excitement / calm / play / power)? What is the product's job (convert / inform / operate daily / entertain)? Any existing brand constraints?
 2. **Match** — run the decision tree and the Chassis → Evidence → Accent model in `references/product-style-fit.md` → 1–2 candidate styles. If the user gave reference images/links, extract their style DNA and name it instead.
 3. **Spec** — open the chosen style's playbook in `references/style-playbooks.md`; fix palette + type pairing + geometry + motion feel BEFORE writing markup. Express the spec as CSS custom properties first. Ready-made token files for five styles live in `references/style-tokens/`.
-4. **Build** — semantic HTML; build the one big idea first, not last.
+4. **Build** — semantic HTML; build the one big idea first, not last. Before rebuilding a known visual primitive, use the lowest sufficient rung in `references/component-adoption.md`: use → theme → wrap → vendor → rebuild.
 5. **Enliven** — add micro-interactions from `references/micro-interactions.md` and 2–4 signature details from `references/signature-details.md`. Stop before it gets noisy: every moving thing must have a job.
 6. **Verify** — render, screenshot, test states and reduced motion; then self-critique against the style's failure modes listed in its playbook.
 
@@ -31,6 +31,7 @@ You are acting as a design brain trust: product designer + brand designer + desi
 |---|---|
 | `references/product-style-fit.md` | Always, at step 2 — style decision tree + Chassis/Evidence/Accent selection model + real product case studies |
 | `references/style-playbooks.md` | At step 3 — the style encyclopedia: 31 named styles with palette/type/geometry/motion/pitfall specs |
+| `references/component-adoption.md` | When a suitable component/library already exists — decide whether to use, theme, wrap, vendor, or rebuild it |
 | `references/color-and-typography.md` | When building palettes or pairing fonts — formulas + curated combos |
 | `references/micro-interactions.md` | At step 5 — interaction catalog with timing/easing/spring numbers |
 | `references/signature-details.md` | At step 5 — "wow detail" catalog (textures, glows, borders, cursors, empty/loading states…) |
@@ -38,7 +39,7 @@ You are acting as a design brain trust: product designer + brand designer + desi
 | `references/report-design-metix.md` | When building report/whitepaper/mapping-style pages — the metix house design language (tokens, section rhythm, CSS charts, bilingual/print tactics) |
 | `references/taste-and-inspiration.md` | When the user asks about 审美/taste, inspiration sources, or wants references to study |
 | `references/fundamentals/*.md` | Deep theory on demand: typography, color/OKLCH, spatial, motion, interaction states, responsive, UX writing |
-| `references/style-tokens/{annotated-developer-editorial,claymorphism,glassmorphism,liquid-glass,neubrutalism}/tokens.css` | Drop-in CSS custom properties when one of these five styles is chosen |
+| `references/style-tokens/{annotated-developer-editorial,claymorphism,glassmorphism,liquid-glass,neubrutalism}/tokens.css` | Drop-in CSS custom properties when one of these five styles is chosen; Annotated Developer Editorial also includes a `neat-annotations-adapter.css` quick path |
 
 ## Sibling skill
 
@@ -48,6 +49,7 @@ You are acting as a design brain trust: product designer + brand designer + desi
 
 - OKLCH wins for palette construction; HSL only for quick one-off tweaks.
 - Glass/blur is a **chosen style**, never a default garnish.
+- Prefer a mature component plus a local token adapter when its public API covers the required semantics and states. Pin or vendor it before production; rebuild only after a concrete boundary fails. Use `references/component-adoption.md`.
 - A named hybrid in `style-playbooks.md` counts as ONE style. Use its complete grammar; do not rebuild it by freely mixing favorite traits from several styles.
 - "Never repeat the same look" applies across unrelated projects; **within one product, consistency wins** — extract and reuse its tokens.
 - Charts and data color: if a dedicated dataviz skill is installed it owns chart craft; otherwise apply `references/fundamentals/color-and-contrast.md` sequential/categorical guidance.

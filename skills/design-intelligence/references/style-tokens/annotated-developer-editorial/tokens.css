@@ -31,6 +31,16 @@
   --ade-note-purple: #8657c8;
   --ade-note-mark-alpha: 10%;
 
+  /* Public neat-annotations adapter controls */
+  --ade-note-target-gap: 5px;
+  --ade-note-label-gap: 6px;
+  --ade-note-lower-label-gap: -4px;
+  --ade-note-max-width: 150px;
+  --ade-note-arrow-x: 0px;
+  --ade-note-arrow-y: 0px;
+  --ade-note-text-x: 0px;
+  --ade-note-text-y: 5px;
+
   /* AA-safe marginalia text on the paper surfaces */
   --ade-note-ink: #5b5752;
   --ade-note-ink-amber: #704507;
@@ -104,6 +114,7 @@
   --ade-note-green: #67c792;
   --ade-note-red: #ee8a6e;
   --ade-note-purple: #b998ef;
+  --ade-note-mark-alpha: 18%;
   --ade-note-ink: #d1d1d6;
   --ade-note-ink-amber: #f0c77e;
   --ade-note-ink-blue: #a6c4f1;

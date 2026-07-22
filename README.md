@@ -28,12 +28,13 @@ skills/
 │   └── references/
 │       ├── product-style-fit.md        # 风格×产品匹配决策树 + 名产品案例
 │       ├── style-playbooks.md          # 风格百科：31 种风格完整规格
+│       ├── component-adoption.md       # 现成组件：使用/主题化/包装/vendor/重写决策阶梯
 │       ├── color-and-typography.md     # 配色公式 + 字体搭配
 │       ├── micro-interactions.md       # 微交互目录（含时长/缓动/弹簧参数）
 │       ├── signature-details.md        # "眼前一亮"细节彩蛋目录
 │       ├── taste-and-inspiration.md    # 审美培养方法 + 灵感源清单
 │       ├── fundamentals/               # 深度理论（源自 Impeccable, Apache 2.0）
-│       └── style-tokens/               # 5 套可直接引用的风格 token CSS（含 Annotated Developer Editorial）
+│       └── style-tokens/               # 5 套风格 token CSS；ADE 另含 neat-annotations adapter
 └── cd-html-design/
     ├── SKILL.md
     ├── references/                     # design-system / interaction / quality-gates

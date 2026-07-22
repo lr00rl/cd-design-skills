@@ -1,0 +1,65 @@
+/* Annotated Developer Editorial adapter for neat-annotations.
+   Load tokens.css, upstream neat-annotations.css, then this file.
+   Upstream contract verified against syabro/neat-annotations@20ca70fa337bc3d35a5b6246c0fa301d79187e31 (MIT).
+   Scope the page or region with .ade-annotations. */
+
+.ade-annotations .ann {
+  --ann-color: var(--ade-note);
+  --ann-text-color: var(--ade-note-ink);
+  --ann-mark: color-mix(
+    in oklch,
+    var(--ann-color) var(--ade-note-mark-alpha),
+    transparent
+  );
+  --ann-font: var(--ade-font-hand);
+  --ann-target-gap: var(--ade-note-target-gap);
+  --ann-label-gap: var(--ade-note-label-gap);
+  --ann-lower-label-gap: var(--ade-note-lower-label-gap);
+  --ann-label-max-width: var(--ade-note-max-width);
+  --ann-arrow-x: var(--ade-note-arrow-x);
+  --ann-arrow-y: var(--ade-note-arrow-y);
+  --ann-text-x: var(--ade-note-text-x);
+  --ann-text-y: var(--ade-note-text-y);
+  --ann-rotate: var(--ade-note-rotate);
+}
+
+.ade-annotations .ann::after {
+  color: var(--ann-text-color);
+  opacity: 1;
+}
+
+.ade-annotations .ann-amber {
+  --ann-color: var(--ade-note-amber);
+  --ann-text-color: var(--ade-note-ink-amber);
+}
+
+.ade-annotations .ann-blue {
+  --ann-color: var(--ade-note-blue);
+  --ann-text-color: var(--ade-note-ink-blue);
+}
+
+.ade-annotations .ann-green {
+  --ann-color: var(--ade-note-green);
+  --ann-text-color: var(--ade-note-ink-green);
+}
+
+.ade-annotations .ann-red {
+  --ann-color: var(--ade-note-red);
+  --ann-text-color: var(--ade-note-ink-red);
+}
+
+.ade-annotations .ann-purple {
+  --ann-color: var(--ade-note-purple);
+  --ann-text-color: var(--ade-note-ink-purple);
+}
+
+.ade-annotations .ann.ann-no-mark {
+  --ann-mark: transparent;
+}
+
+/* Rainbow cycling conflicts with ADE's restrained, state-led color grammar. */
+.ade-annotations .ann-rainbow {
+  --ann-color: var(--ade-note);
+  --ann-text-color: var(--ade-note-ink);
+  animation: none;
+}
