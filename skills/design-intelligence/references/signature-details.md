@@ -28,6 +28,7 @@ Small, concrete moves that make a page feel authored. Pick **2–4 per surface**
 - **Drop caps & pull quotes** that break the column (editorial register).
 - **Kinetic variable-axis moment** — ONE headline animating ONE axis (weight on hover, width on scroll). Recursive/Fraunces/Roboto Flex.
 - **Scribbled emphasis** — hand-drawn SVG circle/underline around one key phrase, drawn on scroll via `stroke-dashoffset` (organic register).
+- **Annotated marginalia system** — pair a translucent marker band with a 1.5px curved arrow and a Shantell Sans note. Keep notes at 13–16px, rotate `-4deg…2deg`, and cap at 1–3 per viewport. Use separate darker text-ink tokens when the stroke/highlight hue misses 4.5:1. Each note must explain a real artifact/state; repeat essential meaning in visible HTML or connect it with `aria-describedby`. Signature of Annotated Developer Editorial, not a generic garnish.
 - **Blinking block cursor `▋`** — ~530ms `step-end` after a headline or streaming text.
 - **Tabular numerals** — `font-variant-numeric: tabular-nums` on ALL data/prices/timers. Absence = jittering amateur tell.
 

@@ -22,6 +22,7 @@ Deep theory lives in `fundamentals/color-and-contrast.md` and `fundamentals/typo
 | Dark tech/luxury | `#08090A` base · elevations `#0F1011→#232427` · text `#F7F8F8`/`#8A8F98` · one accent `#5E6AD2` or `#00E599` + grain |
 | Light engineered | `#FFF` canvas · `#F7F7F8` wells · ink `#111` · muted `#666` · grid `#E5E7EB` · one accent |
 | Warm paper/editorial | `#FDFCF8` paper · `#1A1A18` ink · `#8A8578` muted · accent `#C1272D` or `#1B3A6B` |
+| Annotated developer editorial | `oklch(.977 .001 30)` paper · `oklch(.285 .007 30)` ink · `oklch(.62 .005 30)` muted · sync `#2F8F5B`/text `#085041` · drift `#C2701C`/text `#633806`; other annotation colors are optional and sparse |
 | Quiet luxury | `#F7F3EC` ivory · `#E8E2D9` beige · `#A69889` taupe · ink `#2E2A26` · brass `#B08D57` (watch AA!) |
 | Playful bold | white/black + 2 of: `#FFDE00` `#FF4911` `#00E599` `#FF90E8` `#7B61FF` |
 | Aurora (earned) | base `#05010f` + 3 of: `#6366f1` `#2dd4bf` `#ec4899` `#8b5cf6` — swap hues away from purple/blue to dodge slop |
@@ -45,6 +46,7 @@ Deep theory lives in `fundamentals/color-and-contrast.md` and `fundamentals/typo
 4. **Rounded friendly + clean body** — clay/consumer: Nunito / Baloo 2 / Quicksand headlines + Inter/Nunito Sans body.
 5. **Statement mono only** — terminal register: ONE mono family everywhere, hierarchy via color/brightness/weight, widths in `ch`.
 6. **CJK pairing** — 思源黑体 Source Han Sans / PingFang SC (UI); 思源宋体 Source Han Serif (heritage/editorial). Latin pair: match skeleton weight — Inter with Han Sans, serif with Han Serif. CJK has no case/italics: hierarchy = size + weight + color only; body 15–16px min, `line-height 1.7+`, never `letter-spacing` on CJK body.
+7. **System sans + mono + marginalia hand** — annotated developer editorial: system sans for prose/UI, Geist Mono for product identity and native artifacts, Shantell Sans only for annotations. Keep hand type under 16px and out of paragraphs; this gives three roles with only two downloaded families.
 
 ### Scale & craft rules
 
@@ -53,7 +55,7 @@ Deep theory lives in `fundamentals/color-and-contrast.md` and `fundamentals/typo
 - Body: 15–16px UI, 17–19px long-form; line-height 1.5 UI / 1.6–1.7 prose; measure 45–75ch (the #1 editorial sin is exceeding it).
 - Display type: tighten tracking as size grows (`-0.02em` at 48px+); optical sizing on (Inter v4, Fraunces).
 - Labels/kickers: caps + `letter-spacing .08–.18em` + smaller size + muted color.
-- Load ≤2 families, subset, `font-display: swap`, preload the display face — FOUT on the hero is a first-impression bug.
+- Load ≤2 webfont families, subset, `font-display: swap`, preload the display face — FOUT on the hero is a first-impression bug. A native system stack may serve a third prose role without another download.
 - **Banned-by-default:** Inter-everywhere-with-nothing-else (slop marker), thin weights over glass/gradient, display serif at body size, pixel/hand fonts for body text.
 
 ### Free font shortlist (verified good, by role)

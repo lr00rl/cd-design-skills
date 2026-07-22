@@ -1,0 +1,125 @@
+:root {
+  /* Warm paper chassis */
+  --ade-paper: oklch(0.977 0.001 30);
+  --ade-paper-alt: oklch(0.992 0.001 30);
+  --ade-panel: oklch(0.953 0.002 30);
+  --ade-artifact: oklch(1 0 0);
+  --ade-ink: oklch(0.285 0.007 30);
+  --ade-ink-soft: oklch(0.44 0.006 30);
+  --ade-muted: oklch(0.62 0.005 30);
+  --ade-faint: oklch(0.75 0.004 30);
+  --ade-line: oklch(0.915 0.003 30);
+  --ade-line-soft: oklch(0.95 0.002 30);
+
+  /* Semantic accents: use statefully, not decoratively */
+  --ade-sync: #2f8f5b;
+  --ade-sync-ink: #085041;
+  --ade-sync-soft: #eef7f1;
+  --ade-drift: #c2701c;
+  --ade-drift-ink: #633806;
+  --ade-drift-soft: #fbf3e8;
+  --ade-error: #c45a38;
+  --ade-error-ink: #712b13;
+  --ade-error-soft: #fbefeb;
+
+  /* Optional marginalia strokes/highlights */
+  --ade-note: #77736e;
+  --ade-note-amber: #b8751a;
+  --ade-note-blue: #3b72c4;
+  --ade-note-green: #2f8f5b;
+  --ade-note-red: #c45a38;
+  --ade-note-purple: #8657c8;
+  --ade-note-mark-alpha: 10%;
+
+  /* AA-safe marginalia text on the paper surfaces */
+  --ade-note-ink: #5b5752;
+  --ade-note-ink-amber: #704507;
+  --ade-note-ink-blue: #315f9f;
+  --ade-note-ink-green: #1d6a41;
+  --ade-note-ink-red: #8d3d25;
+  --ade-note-ink-purple: #68439f;
+
+  /* Three roles, only two downloaded families */
+  --ade-font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --ade-font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+  --ade-font-hand: "Shantell Sans", cursive;
+
+  /* Geometry and reading measure */
+  --ade-space: 4px;
+  --ade-page: 1180px;
+  --ade-prose: 65ch;
+  --ade-radius-control: 8px;
+  --ade-radius-artifact: 10px;
+  --ade-rule: 1px solid var(--ade-line);
+
+  /* Elevate native artifacts only */
+  --ade-shadow-card:
+    0 0 0 1px oklch(0.2 0.01 30 / 0.06),
+    0 1px 2px -1px oklch(0.2 0.01 30 / 0.08),
+    0 2px 4px oklch(0.2 0.01 30 / 0.05);
+  --ade-shadow-artifact:
+    0 0 0 1px oklch(0.2 0.01 30 / 0.06),
+    0 1px 2px oklch(0.2 0.01 30 / 0.05),
+    0 2px 4px oklch(0.2 0.01 30 / 0.05),
+    0 4px 8px oklch(0.2 0.01 30 / 0.05),
+    0 8px 16px oklch(0.2 0.01 30 / 0.05),
+    0 16px 32px oklch(0.2 0.01 30 / 0.05),
+    0 32px 64px oklch(0.2 0.01 30 / 0.05);
+
+  /* Crisp UI; annotation motion is a rare narrative event */
+  --ade-motion-control: 150ms;
+  --ade-motion-annotation: 1.6s;
+  --ade-ease-control: cubic-bezier(0.2, 0, 0, 1);
+  --ade-note-rotate: -4deg;
+  --ade-arrow-width: 46px;
+  --ade-arrow-height: 38px;
+  --ade-arrow-stroke: 1.5px;
+}
+
+[data-theme="dark"] {
+  --ade-paper: oklch(0.18 0.004 30);
+  --ade-paper-alt: oklch(0.205 0.004 30);
+  --ade-panel: oklch(0.235 0.004 30);
+  --ade-artifact: oklch(0.21 0.004 30);
+  --ade-ink: oklch(0.96 0.002 30);
+  --ade-ink-soft: oklch(0.82 0.003 30);
+  --ade-muted: oklch(0.68 0.004 30);
+  --ade-faint: oklch(0.55 0.004 30);
+  --ade-line: oklch(0.33 0.004 30);
+  --ade-line-soft: oklch(0.28 0.004 30);
+  --ade-sync: #67c792;
+  --ade-sync-ink: #8fe0ad;
+  --ade-sync-soft: #20372a;
+  --ade-drift: #f0b45a;
+  --ade-drift-ink: #f0c77e;
+  --ade-drift-soft: #3a2d1b;
+  --ade-error: #ee8a6e;
+  --ade-error-ink: #f1ab98;
+  --ade-error-soft: #3a241f;
+  --ade-note: #b8b8bd;
+  --ade-note-amber: #f0b45a;
+  --ade-note-blue: #78a9ef;
+  --ade-note-green: #67c792;
+  --ade-note-red: #ee8a6e;
+  --ade-note-purple: #b998ef;
+  --ade-note-ink: #d1d1d6;
+  --ade-note-ink-amber: #f0c77e;
+  --ade-note-ink-blue: #a6c4f1;
+  --ade-note-ink-green: #8fe0ad;
+  --ade-note-ink-red: #f1ab98;
+  --ade-note-ink-purple: #ccb5f2;
+  --ade-rule: 1px solid var(--ade-line);
+  --ade-shadow-card: 0 0 0 1px oklch(1 0 0 / 0.06);
+  --ade-shadow-artifact:
+    0 0 0 1px oklch(1 0 0 / 0.06),
+    0 16px 48px oklch(0 0 0 / 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ade-motion-control: 0ms;
+    --ade-motion-annotation: 0ms;
+  }
+}

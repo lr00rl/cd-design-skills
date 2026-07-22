@@ -27,13 +27,13 @@ skills/
 │   ├── SKILL.md                        # 路由 + 工作流 + 硬规则
 │   └── references/
 │       ├── product-style-fit.md        # 风格×产品匹配决策树 + 名产品案例
-│       ├── style-playbooks.md          # 风格百科：25+ 风格完整规格
+│       ├── style-playbooks.md          # 风格百科：31 种风格完整规格
 │       ├── color-and-typography.md     # 配色公式 + 字体搭配
 │       ├── micro-interactions.md       # 微交互目录（含时长/缓动/弹簧参数）
 │       ├── signature-details.md        # "眼前一亮"细节彩蛋目录
 │       ├── taste-and-inspiration.md    # 审美培养方法 + 灵感源清单
 │       ├── fundamentals/               # 深度理论（源自 Impeccable, Apache 2.0）
-│       └── style-tokens/               # 4 套可直接引用的风格 token CSS
+│       └── style-tokens/               # 5 套可直接引用的风格 token CSS（含 Annotated Developer Editorial）
 └── cd-html-design/
     ├── SKILL.md
     ├── references/                     # design-system / interaction / quality-gates

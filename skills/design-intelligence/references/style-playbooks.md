@@ -1,6 +1,6 @@
 # Style Playbooks — the Style Encyclopedia (2025–2026)
 
-27 named styles. Each entry: vibe → signature moves → palette → type → motion → fits/clashes → exemplars → failure modes. Pick ONE style per surface, commit hard, and read its failure modes before shipping.
+31 named styles. Each entry: vibe → signature moves → palette → type → motion → fits/clashes → exemplars → failure modes. Pick ONE style per surface, commit hard, and read its failure modes before shipping.
 
 Research basis: Figma trends, NN/g, Awwwards 2025, Apple WWDC25, Malewicz, Setproduct, LogRocket, DESIGN.md 461-style library, Webflow/Tubik/Envato 2026 forecasts.
 
@@ -255,6 +255,23 @@ Research basis: Figma trends, NN/g, Awwwards 2025, Apple WWDC25, Malewicz, Setpr
 - **Moves:** fixed-width centered column; webrings, 88×31 buttons, guestbooks; tiled backgrounds; visited-link purple; sincere `<marquee>`; **the absence of growth machinery IS the aesthetic.**
 - **Type:** Verdana, Georgia, Comic Sans (sincere), Silkscreen, VT323.
 - **Fits:** personal sites, digital gardens, artist pages, small communities. **Clashes:** ANY business — **a brand adopting it reads as appropriation and gets mocked.** It's a values position, not a style to borrow.
+
+### 5.7 Annotated Developer Editorial / Warm Dev Notebook
+- **Vibe:** a careful engineer explaining the product directly in a well-made notebook — technical but not cold, human but not childish, minimal but not empty.
+- **One big idea:** **the product's native artifact is the hero.** Use a real Markdown spec, diff, terminal result, schema, or repository state as the main visual; a sparse handwritten layer points out why it matters.
+- **Chassis:** warm near-white paper; charcoal text; generous editorial whitespace; mono structure; 1px rules; real content kept flat; artifact windows get 8–10px radii and the only meaningful elevation. Page max `1180px`, prose max `65ch`, spacing on a 4px base.
+- **Evidence:** show truthful file names, commands, states, and semantic tokens. Prefer one large inspectable artifact over a grid of benefit cards. Use browser-window dots only when the object is genuinely a file/terminal window.
+- **Accent:** 1–3 handwritten annotations per viewport; Shantell Sans at 13–16px; 1.5px curved arrows; translucent marker bands; rotations between `-4deg` and `2deg`. Annotations explain a stable ID, state, relationship, or important phrase — never sprinkle them as confetti.
+- **Palette:** paper `oklch(.977 .001 30)`, paper-alt `oklch(.992 .001 30)`, panel `oklch(.953 .002 30)`, ink `oklch(.285 .007 30)`, muted `oklch(.62 .005 30)`, line `oklch(.915 .003 30)`; semantic sync `#2F8F5B`, drift `#C2701C`; optional annotation blue `#3B72C4`, red `#C45A38`, purple `#8657C8`. These saturated hues may color strokes/marks; use the darker `*-ink` tokens for small text. Saturated color stays below 10% of the viewport.
+- **Type:** system sans for prose/UI; Geist Mono for wordmark, headings, filenames, commands, IDs, and tabular data; Shantell Sans **only** for marginalia. This is a three-role system but only two downloaded families; never set paragraphs in mono or hand type.
+- **Depth:** flat reading surface + one elevated artifact. Use a 1px low-alpha ring and stacked ambient shadow (`0 1px 2px`, `0 2px 4px`, then optional larger falloff); no glass, gradient glow, or wall-to-wall cards.
+- **Motion:** artifact controls `100–150ms`; annotation highlight/arrow/label may draw once in `1.2–1.6s`; caret blink `1.1s steps(1)` only when it represents active text. No bounce or fake typing. Under `prefers-reduced-motion`, show the complete static state immediately.
+- **Fits:** OSS and CLI launches, technical docs, spec/dev tools, agent platforms, developer portfolios, text-native indie SaaS, changelogs, and onboarding that teaches syntax. On daily-use product surfaces, keep the chassis and evidence but reserve annotations for first-use guidance, empty states, or rare explanations.
+- **Nearby-style split:** choose Blueprint when system precision and visible infrastructure are the message; Terminal when command execution is the whole identity; Organic/Hand-Drawn when friendliness should reach every control and border; Warm Minimal when aspiration and calm matter more than technical proof. Choose this style when **a real developer artifact plus a human explanation** is the message.
+- **Clashes:** lifestyle/e-commerce imagery, luxury aspiration, dense real-time dashboards, conservative enterprise procurement, or any product without a meaningful text/code/document artifact.
+- **Ready tokens:** `style-tokens/annotated-developer-editorial/tokens.css`.
+- **Exemplars:** [mdtask](https://mdtask.dev/) for the complete product language; [neat-annotations](https://neat-annotations.syabro.com/) for the marginalia layer.
+- **Failures:** generic SaaS copy pasted into a terminal costume; annotations carrying essential instructions; hand font used for body text; every section becoming a code window; beige-on-beige contrast; semantic green/amber used decoratively; too many rotations; copying an exemplar's wording instead of using the target product's real objects.
 
 ---
 
