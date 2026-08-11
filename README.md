@@ -6,10 +6,10 @@
 
 | Skill | 定位 | 何时触发 |
 |---|---|---|
-| [`skills/design-intelligence/`](skills/design-intelligence/SKILL.md) | **设计智囊**：风格选择、配色、排版、布局、微交互、风格与产品匹配 | 设计/重设计任何 web 页面、应用 UI、落地页、仪表盘、组件；要求"好看/惊艳/眼前一亮/fancy"的时候 |
+| [`skills/design-intelligence/`](skills/design-intelligence/SKILL.md) | **UI/UX 与产品设计智囊**：用户任务、信息架构、导航/流程/表单/状态、可用性与无障碍验证、Apple 公开资料综合、平台判断和视觉设计 | 设计/评审用户流程、Web/应用 UI、仪表盘、Apple 平台概念、独立硬件产品/伴侣与跨设备体验；要求"好用/好看/惊艳/fancy"的时候 |
 | [`skills/cd-html-design/`](skills/cd-html-design/SKILL.md) | **CD 文档设计语言**：克制的信息密集型 HTML 文档/手册风格，带可执行校验器 | 独立 HTML 文档、手册、产品指南、流程图页、密集信息页 |
 
-分工：**文档/报告/内部工具 → cd-html-design；营销页/产品 UI/仪表盘/创意页 → design-intelligence。**
+分工按产物和交互深度：**静态文档、报告、手册、打印型密集信息页 → cd-html-design；可操作产品 UI、交互式仪表盘、工作流工具、营销/创意页 → design-intelligence。** 内部/外部不决定路由：内部静态报告用前者，内部应用用后者。
 
 ## Install
 
@@ -25,7 +25,13 @@
 skills/
 ├── design-intelligence/
 │   ├── SKILL.md                        # 路由 + 工作流 + 硬规则
+│   ├── agents/openai.yaml              # Codex 展示名、简介与默认调用提示
 │   └── references/
+│       ├── apple-product-design.md     # Apple 公开资料综合：官方原则、推导规则、平台/输入、责任与一体化验证门
+│       ├── fundamentals/
+│       │   ├── experience-architecture.md            # 任务/对象、IA、导航、流程、表单、状态与内容架构
+│       │   ├── experience-validation-and-handoff.md  # 原型、可用性/无障碍证据、韧性测试与工程交付
+│       │   └── …                                     # 排版、色彩、空间、动效、交互与 UX 文案理论
 │       ├── product-style-fit.md        # 风格×产品匹配决策树 + 名产品案例
 │       ├── style-playbooks.md          # 风格百科：31 种风格完整规格
 │       ├── component-adoption.md       # 现成组件：使用/主题化/包装/vendor/重写决策阶梯
@@ -33,7 +39,6 @@ skills/
 │       ├── micro-interactions.md       # 微交互目录（含时长/缓动/弹簧参数）
 │       ├── signature-details.md        # "眼前一亮"细节彩蛋目录
 │       ├── taste-and-inspiration.md    # 审美培养方法 + 灵感源清单
-│       ├── fundamentals/               # 深度理论（源自 Impeccable, Apache 2.0）
 │       └── style-tokens/               # 5 套风格 token CSS；ADE 另含 neat-annotations adapter
 └── cd-html-design/
     ├── SKILL.md

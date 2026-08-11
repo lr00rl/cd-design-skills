@@ -1,4 +1,8 @@
-/* Liquid Glass Design Tokens */
+/*
+ * Web-only approximation for functional navigation/control chrome.
+ * This is not Apple's native Liquid Glass material or a content-card preset.
+ * Apply only after contrast, transparency-preference, and performance checks.
+ */
 
 :root {
   color-scheme: light dark;
@@ -28,13 +32,14 @@
   --lg-duration-normal: 300ms;
   --lg-duration-slow: 500ms;
   --lg-easing-spring: cubic-bezier(0.22, 1, 0.36, 1);
+  --lg-backdrop-filter: none;
 
-  /* Light mode (default) */
-  --lg-bg-primary: rgba(255,255,255,0.72);
-  --lg-bg-elevated: rgba(255,255,255,0.82);
-  --lg-bg-toolbar: rgba(255,255,255,0.65);
-  --lg-bg-interactive: rgba(255,255,255,0.5);
-  --lg-bg-pressed: rgba(255,255,255,0.35);
+  /* Opaque light-mode fallback */
+  --lg-bg-primary: rgb(248,248,248);
+  --lg-bg-elevated: rgb(255,255,255);
+  --lg-bg-toolbar: rgb(248,248,248);
+  --lg-bg-interactive: rgb(238,238,238);
+  --lg-bg-pressed: rgb(225,225,225);
   --lg-bg-scrim: rgba(0,0,0,0.25);
   --lg-border-color: rgba(255,255,255,0.45);
   --lg-border-subtle: rgba(0,0,0,0.06);
@@ -42,11 +47,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --lg-bg-primary: rgba(30,30,30,0.65);
-    --lg-bg-elevated: rgba(40,40,40,0.75);
-    --lg-bg-toolbar: rgba(25,25,25,0.6);
-    --lg-bg-interactive: rgba(255,255,255,0.1);
-    --lg-bg-pressed: rgba(255,255,255,0.06);
+    --lg-bg-primary: rgb(28,28,30);
+    --lg-bg-elevated: rgb(44,44,46);
+    --lg-bg-toolbar: rgb(28,28,30);
+    --lg-bg-interactive: rgb(58,58,60);
+    --lg-bg-pressed: rgb(72,72,74);
     --lg-bg-scrim: rgba(0,0,0,0.5);
     --lg-border-color: rgba(255,255,255,0.12);
     --lg-border-subtle: rgba(255,255,255,0.06);
@@ -56,19 +61,112 @@
   }
 }
 
-@media (prefers-contrast: high) {
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   :root {
-    --lg-bg-primary: rgba(255,255,255,0.95);
-    --lg-bg-elevated: rgba(255,255,255,0.98);
+    --lg-backdrop-filter: blur(var(--lg-blur-md)) saturate(var(--lg-saturate));
+    --lg-bg-primary: rgba(255,255,255,0.72);
+    --lg-bg-elevated: rgba(255,255,255,0.82);
+    --lg-bg-toolbar: rgba(255,255,255,0.65);
+    --lg-bg-interactive: rgba(255,255,255,0.5);
+    --lg-bg-pressed: rgba(255,255,255,0.35);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --lg-bg-primary: rgba(30,30,30,0.65);
+      --lg-bg-elevated: rgba(40,40,40,0.75);
+      --lg-bg-toolbar: rgba(25,25,25,0.6);
+      --lg-bg-interactive: rgba(255,255,255,0.1);
+      --lg-bg-pressed: rgba(255,255,255,0.06);
+    }
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --lg-backdrop-filter: none;
+    --lg-bg-primary: rgb(248,248,248);
+    --lg-bg-elevated: rgb(255,255,255);
+    --lg-bg-toolbar: rgb(248,248,248);
+    --lg-bg-interactive: rgb(238,238,238);
+    --lg-bg-pressed: rgb(225,225,225);
     --lg-border-color: rgba(0,0,0,0.3);
   }
 }
 
-@media (prefers-contrast: high) and (prefers-color-scheme: dark) {
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
   :root {
-    --lg-bg-primary: rgba(20,20,20,0.95);
-    --lg-bg-elevated: rgba(25,25,25,0.98);
+    --lg-bg-primary: rgb(20,20,20);
+    --lg-bg-elevated: rgb(25,25,25);
+    --lg-bg-toolbar: rgb(28,28,30);
+    --lg-bg-interactive: rgb(58,58,60);
+    --lg-bg-pressed: rgb(72,72,74);
     --lg-border-color: rgba(255,255,255,0.3);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --lg-backdrop-filter: none;
+    --lg-bg-primary: rgb(248,248,248);
+    --lg-bg-elevated: rgb(255,255,255);
+    --lg-bg-toolbar: rgb(248,248,248);
+    --lg-bg-interactive: rgb(238,238,238);
+    --lg-bg-pressed: rgb(225,225,225);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) and (prefers-color-scheme: dark) {
+  :root {
+    --lg-bg-primary: rgb(28,28,30);
+    --lg-bg-elevated: rgb(44,44,46);
+    --lg-bg-toolbar: rgb(28,28,30);
+    --lg-bg-interactive: rgb(58,58,60);
+    --lg-bg-pressed: rgb(72,72,74);
+  }
+}
+
+/*
+ * `prefers-reduced-transparency` has limited browser support.
+ * Expose a product setting that applies either selector as a deterministic fallback.
+ */
+:root.reduce-transparency,
+:root[data-reduce-transparency="true"] {
+  --lg-backdrop-filter: none;
+  --lg-bg-primary: rgb(248,248,248);
+  --lg-bg-elevated: rgb(255,255,255);
+  --lg-bg-toolbar: rgb(248,248,248);
+  --lg-bg-interactive: rgb(238,238,238);
+  --lg-bg-pressed: rgb(225,225,225);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root.reduce-transparency,
+  :root[data-reduce-transparency="true"] {
+    --lg-bg-primary: rgb(28,28,30);
+    --lg-bg-elevated: rgb(44,44,46);
+    --lg-bg-toolbar: rgb(28,28,30);
+    --lg-bg-interactive: rgb(58,58,60);
+    --lg-bg-pressed: rgb(72,72,74);
+  }
+}
+
+@media (forced-colors: active) {
+  :root,
+  :root.reduce-transparency,
+  :root[data-reduce-transparency="true"] {
+    --lg-backdrop-filter: none;
+    --lg-bg-primary: Canvas;
+    --lg-bg-elevated: Canvas;
+    --lg-bg-toolbar: Canvas;
+    --lg-bg-interactive: ButtonFace;
+    --lg-bg-pressed: Highlight;
+    --lg-bg-scrim: Canvas;
+    --lg-border-color: CanvasText;
+    --lg-border-subtle: CanvasText;
+    --lg-shadow-subtle: none;
+    --lg-shadow-elevated: none;
+    --lg-shadow-high: none;
   }
 }
 

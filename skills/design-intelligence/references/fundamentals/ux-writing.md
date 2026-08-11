@@ -2,14 +2,13 @@
 
 ## The Button Label Problem
 
-**Never use "OK", "Submit", or "Yes/No".** These are lazy and ambiguous. Use specific verb + object patterns:
+When the result can be named, prefer a specific verb + object or outcome label over generic "OK", "Submit", or "Yes/No". Keep familiar platform labels such as Cancel, Close, Done, or a simple acknowledgement when they precisely match the action and surrounding context.
 
-| Bad | Good | Why |
+| Vague in an actionable flow | Prefer | Why |
 |-----|------|-----|
 | OK | Save changes | Says what will happen |
 | Submit | Create account | Outcome-focused |
 | Yes | Delete message | Confirms the action |
-| Cancel | Keep editing | Clarifies what "cancel" means |
 | Click here | Download PDF | Describes the destination |
 
 **For destructive actions**, name the destruction:
@@ -100,7 +99,7 @@ Most confirmation dialogs are design failures—consider undo instead. When you 
 
 ## Form Instructions
 
-Show format with placeholders, not instructions. For non-obvious fields, explain why you're asking.
+Use a persistent label plus a visible hint or example when the format isn't obvious. A placeholder may demonstrate an example, but it must never be the only label, instruction, requiredness cue, or format requirement. For surprising or sensitive fields, explain why the information is needed and what happens next.
 
 ---
 

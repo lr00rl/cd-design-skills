@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Intelligence"
+  short_description: "Design rigorous UI/UX and hardware experiences"
+  default_prompt: "Use $design-intelligence to structure the task, flow, states, hardware context, and interface, then validate the resulting experience."

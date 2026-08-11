@@ -1,12 +1,12 @@
 # Craft Details — Pixel-Level Rules with Exact Values
 
-Distilled from Jakub Krehel's interfaces.dev agent skills (github.com/jakubkrehel/skills, MIT) plus corroborating sources. The meta-rule of this file: **prescribe exact values, never adjectives** — agents (and humans) comply with numbers and drift on vibes. Always conform to the host project's existing styling system (Tailwind vs plain CSS vs CSS-in-JS); never introduce a second one to apply a fix.
+Distilled from Jakub Krehel's interfaces.dev agent skills (github.com/jakubkrehel/skills, MIT) plus corroborating sources. The meta-rule of this file: **turn chosen behavior into testable values instead of adjectives**. These are web/design-engineering defaults, not platform invariants. Product purpose, safety, accessibility, target-platform conventions, native component behavior, the host design system, and measured evidence take precedence. Never introduce a second styling system merely to apply a fix.
 
 ## Geometry & alignment
 
 - **Concentric border radius:** `outerRadius = innerRadius + padding`. The most common thing that makes interfaces feel "off." If padding > 24px, treat layers as separate surfaces and pick radii independently instead of forcing the math.
 - **Optical over geometric alignment:** icon-side padding = text-side padding − 2px; play-triangle icons get `margin-left: 2px`; for asymmetric icons, fix the SVG viewBox/path itself rather than adding component margins.
-- **Hit areas:** ≥44×44px touch, ≥40×40px desktop; extend with `::after` pseudo-element. **Two hit areas must never overlap** — shrink the pseudo, keep it as large as possible without colliding.
+- **Hit areas (web defaults):** ≥44×44 CSS px for coarse/touch input and ≥40×40 CSS px for fine-pointer desktop; extend with `::after` when semantics and neighboring targets remain correct. **Two hit areas must never overlap.** Native Apple-platform work follows current HIG and system-component behavior rather than translating points to CSS pixels.
 
 ## Shadows & outlines
 
@@ -42,7 +42,7 @@ Distilled from Jakub Krehel's interfaces.dev agent skills (github.com/jakubkrehe
 - Store copy in natural case, present with `text-transform`. Smart punctuation: curly quotes in prose, en dash for ranges, `&nbsp;` to bind "16 px".
 - Underlines: `text-underline-position: from-font; text-decoration-thickness: from-font` + `text-underline-offset` + `text-decoration-skip-ink`. Dotted underline = "this word carries extra info." If animating more than color, build the underline as a separate element.
 - **Mobile inputs at 16px** (`text-base sm:text-sm`) or iOS Safari zooms. Never `maximum-scale=1` (blocks zoom in non-Safari browsers, fails WCAG).
-- Floors: body 16px; UI 14px; captions 13px; rarely below 12px.
+- Readability starting points, not accessibility conformance rules: body ~16px; compact UI ~14px; captions ~13px; rarely below 12px. Judge the actual context through zoom/text scaling, line length, contrast, font metrics, density, platform settings, and representative testing.
 - `-webkit-font-smoothing: antialiased` once on the root. Logical properties (`margin-inline-start`, `text-align: start`) + `lang`/`dir` for RTL.
 
 ## OKLCH thresholds (companion to color-and-typography.md)
@@ -53,9 +53,9 @@ Distilled from Jakub Krehel's interfaces.dev agent skills (github.com/jakubkrehe
 | Lightness gap, light bg | fg L < 0.45 when bg L > 0.85 |
 | Lightness gap, dark bg | fg L > 0.75 when bg L < 0.25 |
 | Hue drift across a ramp | >10° spread = visible drift |
-| APCA normal text | \|Lc\| ≥ 60 pass, ≥ 75 comfortable |
-| WCAG 2 | 4.5:1 AA, 7:1 AAA |
-| Contrast fixing | **adjust L only** — chroma has negligible effect |
+| APCA exploratory heuristic | Use measured Lc as design feedback; do not claim WCAG conformance from it |
+| WCAG 2.x normal text contrast | 4.5:1 AA, 7:1 AAA; large-text and nontext/UI criteria differ |
+| Contrast fixing | Adjust lightness first, then remeasure and retune chroma/hue if needed |
 
 - Multi-hue palettes: use the **same % of each hue's max chroma**, not the same absolute C — that's what reads as evenly vivid.
 - Derive dark mode by reversing the light palette's L mapping, then tune.

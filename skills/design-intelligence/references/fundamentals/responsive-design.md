@@ -1,40 +1,30 @@
 # Responsive Design
 
-## Mobile-First: Write It Right
+## Start From the Most Constrained Core Task
 
-Start with base styles for mobile, use `min-width` queries to layer complexity. Desktop-first (`max-width`) means mobile loads unnecessary styles first.
+Use a simple base layout and add complexity as content and available space justify it. Mobile-first CSS is often convenient, but the UX decision is task-first: reprioritize navigation, density, input, and disclosure instead of merely shrinking a desktop composition.
 
 ## Breakpoints: Content-Driven
 
-Don't chase device sizes—let content tell you where to break. Start narrow, stretch until design breaks, add breakpoint there. Three breakpoints usually suffice (640, 768, 1024px). Use `clamp()` for fluid values without breakpoints.
+Don't chase device model sizes—let content and task behavior reveal where adaptation is needed. Start across a range, identify where hierarchy, legibility, interaction, or data relationships fail, and add the minimum useful breakpoints. Use `clamp()` for fluid values when bounded interpolation is appropriate.
 
-## Detect Input Method, Not Just Screen Size
+## Detect Input Capabilities, Not the Current Input Event
 
-**Screen size doesn't tell you input method.** A laptop with touchscreen, a tablet with keyboard—use pointer and hover queries:
+**Screen size doesn't determine input, and `pointer` describes the primary pointer capability rather than the input someone is using at this moment.** Keep a touch-safe semantic hit area by default; use pointer/hover queries only for capability-specific enhancements.
 
 ```css
-/* Fine pointer (mouse, trackpad) */
-@media (pointer: fine) {
-  .button { padding: 8px 16px; }
+.button {
+  min-inline-size: 44px;
+  min-block-size: 44px;
 }
 
-/* Coarse pointer (touch, stylus) */
-@media (pointer: coarse) {
-  .button { padding: 12px 20px; }  /* Larger touch target */
-}
-
-/* Device supports hover */
-@media (hover: hover) {
+/* Enhance presentation when the primary pointer is fine and supports hover. */
+@media (hover: hover) and (pointer: fine) {
   .card:hover { transform: translateY(-2px); }
-}
-
-/* Device doesn't support hover (touch) */
-@media (hover: none) {
-  .card { /* No hover state - use active instead */ }
 }
 ```
 
-**Critical**: Don't rely on hover for functionality. Touch users can't hover.
+Use `any-pointer`/`any-hover` only when the presence of an additional capability matters. A stylus may be fine or coarse. Never shrink the semantic hit target because a device reports a fine primary pointer, and never rely on hover for functionality.
 
 ## Safe Areas: Handle the Notch
 
@@ -95,7 +85,11 @@ When you need different crops/compositions (not just resolutions):
 
 ## Layout Adaptation Patterns
 
-**Navigation**: Three stages—hamburger + drawer on mobile, horizontal compact on tablet, full with labels on desktop. **Tables**: Transform to cards on mobile using `display: block` and `data-label` attributes. **Progressive disclosure**: Use `<details>/<summary>` for content that can collapse on mobile.
+**Navigation:** choose the compact pattern from top tasks, destination count, current-location visibility, search/command needs, reachability, and platform conventions. Mobile does not automatically mean a hamburger drawer. Preserve the current task and return path.
+
+**Tables/data:** preserve the relationships that make the information tabular. Depending on the task, prioritize columns, use horizontal scrolling with sticky identifiers, offer comparison/detail modes, or design a distinct small-screen task view. Cards are valid only when row-level reading matters more than cross-row/column comparison.
+
+**Progressive disclosure:** use native `<details>/<summary>` when its disclosure semantics match the content; don't hide primary tasks or critical status merely to reduce height.
 
 ## Testing: Don't Trust DevTools Alone
 
@@ -107,8 +101,8 @@ DevTools device emulation is useful for layout but misses:
 - Font rendering differences
 - Browser chrome/keyboard appearances
 
-**Test on at least**: One real iPhone, one real Android, a tablet if relevant. Cheap Android phones reveal performance issues you'll never see on simulators.
+Test on representative real devices and input contexts for the supported audience, including at least one constrained device when performance or memory matters. Emulation is evidence for layout, not a substitute for real touch, keyboard, browser chrome, assistive technology, or device performance.
 
 ---
 
-**Avoid**: Desktop-first design. Device detection instead of feature detection. Separate mobile/desktop codebases. Ignoring tablet and landscape. Assuming all mobile devices are powerful.
+**Avoid**: shrinking desktop without task reprioritization; device detection instead of feature detection; separate experiences that drift semantically; ignoring intermediate widths, landscape, virtual keyboards, mixed inputs, resize, or constrained hardware.

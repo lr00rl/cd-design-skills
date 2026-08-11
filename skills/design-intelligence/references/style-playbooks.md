@@ -16,14 +16,15 @@ Research basis: Figma trends, NN/g, Awwwards 2025, Apple WWDC25, Malewicz, Setpr
 ## FAMILY 1 — DEPTH & MATERIAL
 
 ### 1.1 Liquid Glass (Apple 2025)
-- **Vibe:** light itself as material — chrome that bends/refracts content beneath.
-- **Moves:** refraction not just blur (edge acts as a lens); specular highlight tracks pointer; **concentricity** (control radius = parent radius − padding); elastic/gel physics — controls stretch, merge, snap back; floating chrome shrinks on scroll; two tiers: Regular (chrome) / Clear (media + dimming scrim).
+- **Boundary:** Liquid Glass is a conditional Apple platform material, not a synonym for Apple product design. Current HIG principles — purpose, agency, responsibility, familiarity, flexibility, simplicity, craft, and delight — govern the product before this visual treatment is considered.
+- **Vibe:** light itself as material — functional chrome that refracts content beneath while keeping navigation and controls distinct from the content layer.
+- **Moves:** refraction rather than flat blur; platform-provided concentric geometry; a separate functional layer for navigation and controls; restrained system-responsive motion. On Apple platforms, prefer current native components instead of recreating the material.
 - **Palette:** a material, not colors — tint sampled from content. Scaffolding `#000` `#1C1C1E` `#F2F2F7` `#FFF`; fills `rgba(255,255,255,.06–.18)`; rims `rgba(255,255,255,.25)`.
-- **Type:** SF Pro; free: Inter (optical sizing), Instrument Sans, Geist. Weight 500–600; never thin over glass.
-- **Motion:** springs/gel, elastic overshoot on press, morph transitions. Ease-in-out reads fake.
-- **Fits:** consumer apps, media players, visionOS-adjacent marketing. **Clashes:** dense tables, forms, long reading, enterprise dashboards, low-end devices.
+- **Type:** on Apple platforms, use current platform text styles and system-font APIs. On the web, use `system-ui` or a licensed product face such as Inter (optical sizing), Instrument Sans, or Geist. Never download and bundle SF fonts as a general web font without verifying Apple's current license. Weight 500–600; never thin over glass.
+- **Motion:** let motion acknowledge input and preserve hierarchy/context; adapt or remove it for reduced-motion settings and different input methods. Do not invent elastic behavior merely to look Apple-like.
+- **Fits:** native Apple-platform navigation/control layers when current HIG supports it; selectively, media-rich web/marketing chrome after performance and contrast testing. **Clashes:** content surfaces, dense tables, forms, long reading, enterprise dashboards, low-end devices.
 - **Ready tokens:** `style-tokens/liquid-glass/tokens.css`.
-- **Failures:** legibility collapse over busy backdrops; `backdrop-filter` scroll jank on low-end Android; ignoring `prefers-reduced-transparency`; glass on content instead of chrome; faking with flat blur (= 2020 glassmorphism). Note: "Anti-Liquid-Glass" is a named 2026 counter-movement — if it only looks good on a flagship phone at full brightness, reconsider.
+- **Failures:** treating it as a universal card style; glass in the content layer; legibility collapse over busy backdrops; effect stacking; custom replicas that fight native behavior; ignoring increased contrast/reduced transparency/reduced motion; `backdrop-filter` jank and missing fallback on the web. Browser support for `prefers-reduced-transparency` is limited, so provide an opaque default and an explicit product setting/class instead of treating the media query as the sole safeguard. If it only works on a flagship display at full brightness, reject it.
 
 ### 1.2 Glassmorphism (tempered, 2026 form)
 - **Vibe:** frosted panes over color — depth without weight.
@@ -351,7 +352,7 @@ Research basis: Figma trends, NN/g, Awwwards 2025, Apple WWDC25, Malewicz, Setpr
 ## UNIVERSAL RULES (priority order)
 
 1. **Never place text on a translucent/gradient surface without an opaque scrim.** Every depth style fails here first.
-2. `prefers-reduced-motion` / `prefers-reduced-transparency` / `prefers-contrast` are part of the style's definition, not optional.
+2. Reduced motion, reduced transparency, and increased contrast are part of the style's definition, not optional. Use supported media queries where available and explicit in-product fallbacks where browser support is incomplete.
 3. Bold palettes: 2–3 colors. Gradient meshes: 3–4 hues.
 4. One "wow" moment per viewport.
 5. Typography is the fastest exit from generic.
