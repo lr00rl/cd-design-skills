@@ -44,13 +44,13 @@ Use compact internal spacing and generous separation between major sections:
 
 | Relationship | Typical spacing |
 | --- | --- |
-| Inline icon to label | 6–10px |
-| Compact controls or chips | 6–8px gap |
-| Card grid | 12–14px gap |
-| Card padding | 14–20px |
-| Heading to lead | 4–8px |
-| Lead to first component | 14–20px |
-| Major section top | 30–40px light; 74px handbook |
+| Inline icon to label | 6-10px |
+| Compact controls or chips | 6-8px gap |
+| Card grid | 12-14px gap |
+| Card padding | 14-20px |
+| Heading to lead | 4-8px |
+| Lead to first component | 14-20px |
+| Major section top | 30-40px light; 74px handbook |
 
 ## Light-document mode
 
@@ -111,13 +111,13 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
 
 | Role | Size | Weight | Line height |
 | --- | --- | --- | --- |
-| Body | 15px | 400 | 1.7–1.75 |
-| Hero title | 26–28px | 500–600 | 1.2 |
-| Section title | 20–22px | 500–600 | 1.3 |
-| Subsection title | 15.5–17px | 500 | 1.35 |
-| Lead | 14–15px | 400 | 1.65 |
+| Body | 15px | 400 | 1.7-1.75 |
+| Hero title | 26-28px | 500-600 | 1.2 |
+| Section title | 20-22px | 500-600 | 1.3 |
+| Subsection title | 15.5-17px | 500 | 1.35 |
+| Lead | 14-15px | 400 | 1.65 |
 | Table body | 13.5px | 400 | 1.55 |
-| Labels and pills | 11.5–13px | 500 | 1.3 |
+| Labels and pills | 11.5-13px | 500 | 1.3 |
 
 Do not enlarge the hero into a marketing billboard. Its purpose is orientation, not persuasion.
 
@@ -130,12 +130,12 @@ Do not enlarge the hero into a marketing billboard. Its purpose is orientation, 
 }
 ```
 
-- Use a 1000–1080px maximum content width.
-- Use 22–24px side gutters.
-- Give the white hero about 34–38px top padding and 22–28px bottom padding.
-- Give sections 34–40px top padding and 8–12px bottom padding.
+- Use a 1000-1080px maximum content width.
+- Use 22-24px side gutters.
+- Give the white hero about 34-38px top padding and 22-28px bottom padding.
+- Give sections 34-40px top padding and 8-12px bottom padding.
 - Separate sections with `1px solid var(--cd-line)`.
-- Keep descriptive leads to about 760–780px even when components use the full width.
+- Keep descriptive leads to about 760-780px even when components use the full width.
 
 ### Navigation
 
@@ -152,7 +152,7 @@ Use a compact sticky horizontal navigation:
 }
 ```
 
-Links use 12.5–13px type, 5px vertical padding, 9–11px horizontal padding, and 7–8px radii. Hover changes surface and text color without moving the link.
+Links use 12.5-13px type, 5px vertical padding, 9-11px horizontal padding, and 7-8px radii. Hover changes surface and text color without moving the link.
 
 ### Geometry
 
@@ -160,9 +160,9 @@ Links use 12.5–13px type, 5px vertical padding, 9–11px horizontal padding, a
 | --- | --- |
 | Primary cards and panels | 12px |
 | Chat or large grouped example | 14px |
-| Avatars and icon tiles | 9–10px |
+| Avatars and icon tiles | 9-10px |
 | Buttons and nav links | 8px |
-| Pills and tags | 6–7px |
+| Pills and tags | 6-7px |
 | Circular sequence marker | 50% |
 
 ## Editorial-handbook mode
@@ -207,12 +207,12 @@ Use three distinct roles with resilient CJK and system fallbacks:
 | Role | Size | Notes |
 | --- | --- | --- |
 | Body | 16.5px / 1.7 | Hanken Grotesk role |
-| Cover wordmark | 46–64px | Display, 800, tight tracking |
-| Cover title | 32–46px | Display, 800 |
+| Cover wordmark | 46-64px | Display, 800, tight tracking |
+| Cover title | 32-46px | Display, 800 |
 | Chapter title | 34px | Display, 700 |
 | Subsection title | 22px | Display, 700 |
 | Lead | 18.5px / 1.6 | Body |
-| Labels | 10–12px | Mono, uppercase, `.10em–.18em` tracking |
+| Labels | 10-12px | Mono, uppercase, `.10em-.18em` tracking |
 
 Use mono type for metadata and orientation labels, not as a substitute for all technical content.
 
@@ -271,7 +271,7 @@ Add at most one restrained radial light field in the upper-right. Keep it behind
 
 ### Summary statistics
 
-Use compact, low-contrast cells near the hero. Keep numbers at 22–24px, labels at 12.5–13px, and do not treat them as marketing proof unless the target content supports that role.
+Use compact, low-contrast cells near the hero. Keep numbers at 22-24px, labels at 12.5-13px, and do not treat them as marketing proof unless the target content supports that role.
 
 ### Cards and panels
 
@@ -292,30 +292,30 @@ Use a concise label, not color alone. Reserve red for true stop conditions.
 
 ### Tables
 
-- Use 13.5–14.5px body type and 11–12.5px headers.
+- Use 13.5-14.5px body type and 11-12.5px headers.
 - Keep headers compact and muted; handbook headers may use mono uppercase labels.
-- Use 1px rules, 9–14px cell padding, and top alignment.
+- Use 1px rules, 9-14px cell padding, and top alignment.
 - Use subtle row hover in light mode and subtle zebra rows in handbook mode.
 - Place every potentially wide table inside an overflow wrapper.
 
 ### Pills and tags
 
-Use pills for state or compact metadata, never as primary controls. Keep them between 11.5px and 12.5px, with 1–7px vertical/horizontal padding depending on density.
+Use pills for state or compact metadata, never as primary controls. Keep them between 11.5px and 12.5px, with 1-7px vertical/horizontal padding depending on density.
 
 ### Process rail
 
-In light mode, use fixed-width steps around 116–118px, 46–48px markers, dotted connectors, compact labels, and horizontal scrolling. Emphasize only the user/current step with a filled primary marker.
+In light mode, use fixed-width steps around 116-118px, 46-48px markers, dotted connectors, compact labels, and horizontal scrolling. Emphasize only the user/current step with a filled primary marker.
 
 In handbook mode, use a compact grid of sharp cards with a 3px top accent, sequence label, title, description, and optional dashed metadata divider.
 
 ### Comparison
 
-- Light mode: two complementary rounded panels with a 12–14px gap.
+- Light mode: two complementary rounded panels with a 12-14px gap.
 - Handbook mode: two columns sharing one outer border, square geometry, and a single internal divider.
 
 ### Chat or conversational example
 
-Use only when the target material genuinely explains a conversational interaction. Keep the container around 660–680px, alternate alignment, limit bubbles to about 80% width, and use asymmetric 4px tail corners. Do not preserve example dialogue from any reference.
+Use only when the target material genuinely explains a conversational interaction. Keep the container around 660-680px, alternate alignment, limit bubbles to about 80% width, and use asymmetric 4px tail corners. Do not preserve example dialogue from any reference.
 
 ### Diagrams and dense data
 

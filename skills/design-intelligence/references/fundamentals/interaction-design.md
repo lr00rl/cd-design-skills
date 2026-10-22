@@ -36,7 +36,7 @@ button:focus-visible {
 
 ## Form Design: The Non-Obvious
 
-**Placeholders aren't labels**—they disappear on input. Use persistent visible labels and associate instructions/errors programmatically. Avoid errors before interaction; validate on blur and submit, give immediate feedback only when it helps correction or availability, and revalidate promptly after correction. Distinguish local-format, server/business-rule, conflict, and submission/system errors; preserve entered data across all of them.
+**Placeholders aren't labels**: they disappear on input. Use persistent visible labels and associate instructions/errors programmatically. Avoid errors before interaction; validate on blur and submit, give immediate feedback only when it helps correction or availability, and revalidate promptly after correction. Distinguish local-format, server/business-rule, conflict, and submission/system errors; preserve entered data across all of them.
 
 ## Loading States
 

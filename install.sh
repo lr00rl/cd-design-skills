@@ -13,7 +13,7 @@ for skill_dir in "$REPO_DIR"/skills/*/; do
   [ -f "$skill_dir/SKILL.md" ] || { echo "skip $name (no SKILL.md)"; continue; }
   link="$TARGET_DIR/$name"
   if [ -e "$link" ] && [ ! -L "$link" ]; then
-    echo "WARN: $link exists and is not a symlink — remove it manually first"; continue
+    echo "WARN: $link exists and is not a symlink; remove it manually first"; continue
   fi
   ln -sfn "${skill_dir%/}" "$link"
   echo "linked $name -> ${skill_dir%/}"

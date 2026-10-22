@@ -1,4 +1,4 @@
-# Experience Validation and Handoff — Evidence Before Completion
+# Experience Validation and Handoff: Evidence Before Completion
 
 Use this reference before Product and Deep verification. Quick work loads it only when the deliverable is an interactive component/prototype or when a validation claim is requested.
 
@@ -69,8 +69,8 @@ Starting state and realistic task prompt:
 Successful outcome:
 Critical error or unacceptable harm:
 Expected recovery path:
-Observation points — hesitation, wrong turn, interpretation, workaround:
-Measures — completion, critical errors, recovery, confidence, time if relevant:
+Observation points (hesitation, wrong turn, interpretation, workaround):
+Measures (completion, critical errors, recovery, confidence, time if relevant):
 Follow-up questions:
 Known sampling or prototype limitations:
 ```
@@ -130,10 +130,10 @@ Exercise only applicable combinations, but name the coverage:
 Viewport/window/orientation:
 Input and assistive technology:
 Appearance/text/motion/contrast settings:
-Network — normal / slow / offline / reconnect:
-Data — realistic / dense / long / empty / stale / partial / conflicting:
+Network (normal / slow / offline / reconnect):
+Data (realistic / dense / long / empty / stale / partial / conflicting):
 Permission/role:
-Interruption — background / resize / refresh / sign-in / device switch:
+Interruption (background / resize / refresh / sign-in / device switch):
 ```
 
 Do not validate responsive work from screenshots alone. Exercise navigation, focus, selection, virtual keyboard, scroll containment, overlays, sticky elements, truncation recovery, and state preservation.
@@ -156,7 +156,7 @@ Test degraded paths end-to-end. A surface that looks successful while a sub-oper
 
 ## 6. Engineering handoff as an experience contract
 
-Handoff is a shared, testable source of truth—not a folder of default-state screenshots.
+Handoff is a shared, testable source of truth, not a folder of default-state screenshots.
 
 ### Per flow
 
@@ -212,11 +212,11 @@ Stop when the primary and critical recovery tasks can be completed in the real m
 
 Do not claim:
 
-- “usable” from a visual review alone;
-- “accessible” from color contrast or an automated scan alone;
-- “validated” when only the happy path was clicked;
-- “complete” when important states are still implicit;
-- “responsive” from two static viewport screenshots alone.
+- "usable" from a visual review alone;
+- "accessible" from color contrast or an automated scan alone;
+- "validated" when only the happy path was clicked;
+- "complete" when important states are still implicit;
+- "responsive" from two static viewport screenshots alone.
 
 ## 8. Official validation sources
 
