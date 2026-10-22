@@ -19,7 +19,7 @@ Build the target-only outline, select one mode, read its references, implement s
 
 | Mode | Use for | Navigation | Geometry |
 | --- | --- | --- | --- |
-| `light-document` | Guides, specifications, process maps, reports | Sticky horizontal section nav | Soft 7–14px radii |
+| `light-document` | Guides, specifications, process maps, reports | Sticky horizontal section nav | Soft 7-14px radii |
 | `editorial-handbook` | Chaptered manuals, training books, editorial references | Sticky 280px chapter rail; stack below 920px | Sharp 2px radii |
 
 Default to `light-document`. Do not graft the handbook cover/sidebar onto a light guide or round handbook components like light cards. Create a hybrid only when explicitly requested; name which mode owns navigation, typography, geometry, and motion.

@@ -1,4 +1,4 @@
-# Component Adoption — Use Before Rebuilding
+# Component Adoption: Use Before Rebuilding
 
 Treat component choice as a product constraint, not an authorship contest. Start at the lowest rung that meets the real requirement; climb only when observed evidence proves the current boundary insufficient.
 

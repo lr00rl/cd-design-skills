@@ -6,7 +6,7 @@ Use a simple base layout and add complexity as content and available space justi
 
 ## Breakpoints: Content-Driven
 
-Don't chase device model sizes—let content and task behavior reveal where adaptation is needed. Start across a range, identify where hierarchy, legibility, interaction, or data relationships fail, and add the minimum useful breakpoints. Use `clamp()` for fluid values when bounded interpolation is appropriate.
+Don't chase device model sizes. Let content and task behavior reveal where adaptation is needed. Start across a range, identify where hierarchy, legibility, interaction, or data relationships fail, and add the minimum useful breakpoints. Use `clamp()` for fluid values when bounded interpolation is appropriate.
 
 ## Detect Input Capabilities, Not the Current Input Event
 

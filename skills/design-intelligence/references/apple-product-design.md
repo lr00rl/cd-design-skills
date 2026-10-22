@@ -1,4 +1,4 @@
-# Apple Product Design — Evidence-backed Synthesis and Review Gates
+# Apple Product Design: Evidence-backed Synthesis and Review Gates
 
 Use this reference to reason about products, hardware-software systems, interactions, Apple-platform work, and consequential UI. It is not an Apple visual imitation guide, a confidential Apple process, or an exhaustive industrial-design specification.
 
@@ -45,13 +45,13 @@ Do not present a web translation, a scoring model, a prioritization, or a hardwa
 Primary outcome:
 Specific person and real context:
 Essential task and shortest useful path:
-System boundary — hardware / software / service / human:
-Agency — choices, escape, edit, undo, recovery:
-Responsibility — safety, privacy, data, abuse, irreversible impact:
-Platform and inputs — device, distance, posture, touch/pointer/keyboard/voice/etc.:
-Continuity — interruption, resize, window/device switch, resume:
-Longevity — maintenance, compatibility, durability, repair, end of life:
-Intended emotion — appropriate to the task, not a decorative mood board:
+System boundary (hardware / software / service / human):
+Agency (choices, escape, edit, undo, recovery):
+Responsibility (safety, privacy, data, abuse, irreversible impact):
+Platform and inputs (device, distance, posture, touch/pointer/keyboard/voice/etc.):
+Continuity (interruption, resize, window/device switch, resume):
+Longevity (maintenance, compatibility, durability, repair, end of life):
+Intended emotion (appropriate to the task, not a decorative mood board):
 Success evidence:
 ```
 
@@ -76,7 +76,7 @@ Apple's current Design Principles page organizes its top-level guidance around e
 
 - **Simplicity is not minimalism.** It is a reduction of unnecessary decisions and an increase in legibility. A powerful tool can remain simple by making complexity available rather than mandatory.
 - **Agency requires legible system state.** Choice without feedback is not control. Recovery without a predictable result is not safety.
-- **Responsibility is product logic.** It governs data models, permission timing, irreversible operations, AI behavior, notification pressure, business incentives, abuse cases, and failure reporting—not merely privacy copy.
+- **Responsibility is product logic.** It governs data models, permission timing, irreversible operations, AI behavior, notification pressure, business incentives, abuse cases, and failure reporting, not merely privacy copy.
 - **Familiarity is a learning accelerator, not an anti-innovation rule.** Innovate in the value or interaction that matters; keep basic controls predictable.
 - **Flexibility means continuity with adaptation.** Preserve the task and mental model while changing density, navigation, input affordances, or presentation for the context.
 - **Craft continues after launch.** Maintenance, platform updates, reliability, performance, compatibility, and support are part of the designed experience.
@@ -256,9 +256,9 @@ trigger → immediate acknowledgement → honest progress → explicit outcome �
 | **visionOS** | Spatial, eyes + hands + voice/physical input, surroundings and body comfort matter | Minimum necessary immersion, comfortable depth/placement, indirect and direct input, safety, privacy, motion comfort | Forcing full immersion; repetitive arm motion; tiny/dense targets; head-locked content; unsafe placement |
 | **Web** | Unknown hardware; keyboard, pointer, touch, assistive tech; variable browser, window, zoom, power, network | Semantic HTML, web conventions, responsive tasks, feature detection, WCAG, 200% zoom, performance and graceful degradation | Copying iOS chrome; Apple-only gestures/assets; assuming Safari/iPhone; disabling zoom |
 | **Hardware companion** | Physical object plus screen/service, intermittent connectivity and device state | Pairing, ownership, latency, offline state, physical/digital control parity, firmware/update, reset, repair and handoff | UI that claims a physical action succeeded before confirmation; hidden desynchronization |
-| **Wearable/audio hardware — Synthesis** | Body fit or listening context; physical controls, sensors, voice, audio/haptic feedback; limited or no screen | Comfort, secure fit, discoverable controls, pairing/battery/connection state, accessible redundant feedback, privacy in public | Audio-only critical state; ambiguous tap/press mappings; hidden disconnection; assuming one body or ear fit |
-| **Shared home/ambient hardware — Synthesis** | Household, guests, shared rooms, voice/touch/automation, intermittent attention | Ownership and profiles, guest access, privacy, clear listening/recording state, quiet-hours and interruption policy, offline/manual control | Treating a shared device as single-user; exposing personal data; automation with no override or visible state |
-| **Accessories/setup/packaging — Synthesis** | First contact, installation, orientation, compatibility, transport and storage | Obvious physical affordances, minimal setup, compatibility truth, accessible instructions, material efficiency, reuse/recovery | Packaging beauty that obscures opening/setup; hidden compatibility limits; disposable complexity |
+| **Wearable/audio hardware (synthesis)** | Body fit or listening context; physical controls, sensors, voice, audio/haptic feedback; limited or no screen | Comfort, secure fit, discoverable controls, pairing/battery/connection state, accessible redundant feedback, privacy in public | Audio-only critical state; ambiguous tap/press mappings; hidden disconnection; assuming one body or ear fit |
+| **Shared home/ambient hardware (synthesis)** | Household, guests, shared rooms, voice/touch/automation, intermittent attention | Ownership and profiles, guest access, privacy, clear listening/recording state, quiet-hours and interruption policy, offline/manual control | Treating a shared device as single-user; exposing personal data; automation with no override or visible state |
+| **Accessories/setup/packaging (synthesis)** | First contact, installation, orientation, compatibility, transport and storage | Obvious physical affordances, minimal setup, compatibility truth, accessible instructions, material efficiency, reuse/recovery | Packaging beauty that obscures opening/setup; hidden compatibility limits; disposable complexity |
 
 Across platforms, preserve the person's task, object, terminology, state, and sense of location. Adapt information density, navigation, controls, input affordances, motion, and presentation to the environment.
 
@@ -274,7 +274,7 @@ The operational material, geometry, and web-boundary rules that follow are **App
 
 ### Materials
 
-- Use material to communicate functional layers, depth, or context—not as garnish.
+- Use material to communicate functional layers, depth, or context, not as garnish.
 - Keep content legible across real backgrounds, appearance modes, increased contrast, and reduced transparency.
 - Avoid multiplying translucent layers, decorative glass cards, or effects that blur the boundary between content and control.
 - On Apple platforms, let current native components adopt current system materials where possible.
@@ -364,12 +364,12 @@ Stop when the primary outcome is clear, responsibility and agency gates pass, pl
 
 ### Current core
 
-- [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines) — current hierarchy, harmony, consistency, and topic structure.
-- [Design principles](https://developer.apple.com/design/human-interface-guidelines/design-principles) — Purpose, Agency, Responsibility, Familiarity, Flexibility, Simplicity, Craft, Delight.
-- [Foundations](https://developer.apple.com/design/human-interface-guidelines/foundations) — accessibility, color, layout, materials, motion, privacy, typography, writing, and related foundations.
-- [Apple Design Resources](https://developer.apple.com/design/resources/) — current platform templates, UI kits, symbols, fonts, icon tools, and product resources.
-- [Apple Design Resources License](https://developer.apple.com/support/downloads/terms/apple-design-resources/Apple-Design-Resources-License-20230621-English.pdf) — permitted use of Apple design assets.
-- [Apple Fonts](https://developer.apple.com/fonts/) — current platform font downloads, usage notes, and license links; verify the applicable terms before bundling any Apple font.
+- [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines): current hierarchy, harmony, consistency, and topic structure.
+- [Design principles](https://developer.apple.com/design/human-interface-guidelines/design-principles): Purpose, Agency, Responsibility, Familiarity, Flexibility, Simplicity, Craft, Delight.
+- [Foundations](https://developer.apple.com/design/human-interface-guidelines/foundations): accessibility, color, layout, materials, motion, privacy, typography, writing, and related foundations.
+- [Apple Design Resources](https://developer.apple.com/design/resources/): current platform templates, UI kits, symbols, fonts, icon tools, and product resources.
+- [Apple Design Resources License](https://developer.apple.com/support/downloads/terms/apple-design-resources/Apple-Design-Resources-License-20230621-English.pdf): permitted use of Apple design assets.
+- [Apple Fonts](https://developer.apple.com/fonts/): current platform font downloads, usage notes, and license links; verify the applicable terms before bundling any Apple font.
 
 ### Responsibility, inclusion, and interaction
 
@@ -383,7 +383,7 @@ Stop when the primary outcome is clear, responsibility and agency gates pass, pl
 - [Onboarding](https://developer.apple.com/design/human-interface-guidelines/onboarding)
 - [Alerts](https://developer.apple.com/design/human-interface-guidelines/alerts)
 - [Multitasking](https://developer.apple.com/design/human-interface-guidelines/multitasking)
-- [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) — current distribution rules for safety, performance, business, design, legal, and privacy.
+- [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/): current distribution rules for safety, performance, business, design, legal, and privacy.
 
 ### Foundations and expression
 
@@ -405,16 +405,16 @@ Stop when the primary outcome is clear, responsibility and agency gates pass, pl
 
 ### Whole-product and hardware evidence
 
-- [Apple Design careers](https://www.apple.com/careers/us/work-at-apple/teams/design.html) — industrial design, human factors, human interface, multisensory design, communications, materials, manufacturing, packaging, and retail as connected disciplines.
-- [Hardware, software, and services collaboration](https://www.apple.com/newsroom/2012/10/29Apple-Announces-Changes-to-Increase-Collaboration-Across-Hardware-Software-Services/) — Apple's stated integrated-product model.
-- [Designed by Apple in California](https://www.apple.com/newsroom/2016/11/designed-by-apple-in-california-chronicles-20-years-of-apple-design/) — official account of collaboration, materials, techniques, coherence, simplicity, and product intent.
-- [Apple Environment](https://www.apple.com/environment/) — lifecycle, materials, durability, energy, repair, recovery, and environmental responsibility.
-- [Longevity, by Design](https://www.apple.com/environment/pdf/Longevity_by_Design-June_2024-Apple.pdf) — durability, repairability, software support, reliability testing, safety, security, privacy, and repair transparency.
+- [Apple Design careers](https://www.apple.com/careers/us/work-at-apple/teams/design.html): industrial design, human factors, human interface, multisensory design, communications, materials, manufacturing, packaging, and retail as connected disciplines.
+- [Hardware, software, and services collaboration](https://www.apple.com/newsroom/2012/10/29Apple-Announces-Changes-to-Increase-Collaboration-Across-Hardware-Software-Services/): Apple's stated integrated-product model.
+- [Designed by Apple in California](https://www.apple.com/newsroom/2016/11/designed-by-apple-in-california-chronicles-20-years-of-apple-design/): official account of collaboration, materials, techniques, coherence, simplicity, and product intent.
+- [Apple Environment](https://www.apple.com/environment/): lifecycle, materials, durability, energy, repair, recovery, and environmental responsibility.
+- [Longevity, by Design](https://www.apple.com/environment/pdf/Longevity_by_Design-June_2024-Apple.pdf): durability, repairability, software support, reliability testing, safety, security, privacy, and repair transparency.
 
 ### Excellence lens
 
 - [Apple Design Awards](https://developer.apple.com/design/awards/)
-- [2025 Apple Design Award winners and finalists](https://developer.apple.com/design/awards/2025/) — archived examples, not the current criteria page.
+- [2025 Apple Design Award winners and finalists](https://developer.apple.com/design/awards/2025/): archived examples, not the current criteria page.
 
 ### Version notes
 

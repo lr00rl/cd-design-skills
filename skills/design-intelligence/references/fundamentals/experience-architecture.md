@@ -1,4 +1,4 @@
-# Experience Architecture — From User Task to Interface Structure
+# Experience Architecture: From User Task to Interface Structure
 
 Use this reference for Product and Deep work before visual style selection. Read only the sections relevant to the task. Quick visual work does not load it unless the request changes navigation, flow, form behavior, persistent/asynchronous state, or information architecture.
 
@@ -39,8 +39,8 @@ Complete the task-relevant fields for Product work. Deep work uses this alongsid
 Person, context, and trigger:
 Primary job and successful outcome:
 Primary object(s), lifecycle, and user vocabulary:
-Primary task — entry → decisions → commitment → completion:
-Alternate/failure route — cancel, recover, resume:
+Primary task (entry → decisions → commitment → completion):
+Alternate/failure route (cancel, recover, resume):
 Success signal and evidence:
 Assumptions that still need validation:
 ```
@@ -56,7 +56,7 @@ Do not invent research. Mark assumptions as assumptions and choose evidence that
 - **Action:** a step they take to advance the task.
 - **Control:** the UI mechanism that invokes an action.
 
-Do not begin with screens or controls. “Add a button” is not a task definition.
+Do not begin with screens or controls. "Add a button" is not a task definition.
 
 ### Prioritize tasks
 
@@ -87,7 +87,7 @@ Keep one term for one concept. Do not mirror internal service boundaries in the 
 
 ## 3. Information architecture and content hierarchy
 
-Information architecture is the organization of destinations, objects, actions, status, and supporting content. A sitemap, sidebar, card grid, or route list is only an output of IA—not IA itself.
+Information architecture is the organization of destinations, objects, actions, status, and supporting content. A sitemap, sidebar, card grid, or route list is only an output of IA, not IA itself.
 
 ### Build the inventory
 
@@ -113,13 +113,13 @@ Group by the person's mental model and object/task relationships. Do not group p
 2. Keep current location and state legible.
 3. Keep frequent and consequential actions findable.
 4. Move advanced, rare, or supporting material behind predictable disclosure.
-5. Preserve necessary comparison and context; “less on screen” is not automatically simpler.
+5. Preserve necessary comparison and context; "less on screen" is not automatically simpler.
 
 Use realistic content before declaring the hierarchy stable. Test the longest label, dense data, missing media, localized expansion, user-generated content, permission-limited content, and empty/no-result cases.
 
 ## 4. Navigation and wayfinding
 
-Choose navigation from destination relationships, task frequency, context, and platform—not from aesthetic preference.
+Choose navigation from destination relationships, task frequency, context, and platform, not from aesthetic preference.
 
 ### Navigation choice matrix
 
@@ -222,7 +222,7 @@ Required and optional inputs:
 Reason for sensitive or surprising inputs:
 Control/input type, autofill, paste, and locale behavior:
 Dependencies and conditional fields:
-Validation timing and source — client / server / business rule:
+Validation timing and source (client / server / business rule):
 Submit acknowledgement, pending state, and duplicate prevention:
 Success, partial, conflict, and system-failure result:
 Back, save/exit, data preservation, and resume:
@@ -281,13 +281,13 @@ While-typing behavior, latency, and cancellation:
 Suggestions, recents, corrections, and history privacy:
 Active filters/scopes/tokens and clear-all behavior:
 Default sort, alternate sort, and ranking explanation if needed:
-Selection model — single/multiple/range; focus vs selection:
+Selection model (single/multiple/range; focus vs selection):
 Loading, no-result, offline, stale, and error behavior:
 ```
 
 **Apple direct:** give important search a primary and consistent location; clearly communicate scope; start while typing when feasible; rank relevant results first; use suggestions or recents when helpful; use scope bars/tokens to refine; provide a history-clear path when history is shown.
 
-Keep query text, scope, filters, sort, and result count visible enough to explain the result set. A zero-result state must distinguish “nothing matches,” “nothing exists,” “not loaded,” “offline,” and “not permitted.”
+Keep query text, scope, filters, sort, and result count visible enough to explain the result set. A zero-result state must distinguish "nothing matches," "nothing exists," "not loaded," "offline," and "not permitted."
 
 For batch selection, keep selected count, scope, available actions, destructive consequence, and exit from selection mode clear. Focus, selection, activation, and navigation must not collapse into an ambiguous highlight.
 
@@ -313,11 +313,11 @@ Responsive UX preserves the task and mental model while adapting presentation.
 For each relevant platform, window, orientation, input, and assistive context, specify:
 
 ```md
-Invariant — task, terminology, object, state, consequence, recovery:
-Adaptation — navigation, columns, density, toolbar, disclosure, placement:
-Input — touch, pointer, keyboard, voice, stylus, remote/focus, eyes/hands:
-Text/content — enlargement, reflow, localization, RTL, virtual keyboard:
-Interruption — resize, background, device/window switch, permission change:
+Invariant (task, terminology, object, state, consequence, recovery):
+Adaptation (navigation, columns, density, toolbar, disclosure, placement):
+Input (touch, pointer, keyboard, voice, stylus, remote/focus, eyes/hands):
+Text/content (enlargement, reflow, localization, RTL, virtual keyboard):
+Interruption (resize, background, device/window switch, permission change):
 ```
 
 Do not infer input from screen size. Do not turn desktop navigation into a drawer or tables into cards by default. Preserve current location, top-task access, comparison relationships, stable identifiers, focus order, selection, and recovery.
