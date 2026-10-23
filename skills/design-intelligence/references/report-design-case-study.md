@@ -1,6 +1,6 @@
-# Case study: Metix report design language (document-shaped data products)
+# Case study: a bilingual data-report design language (document-shaped data products)
 
-The design system behind the mapping reports Metix publishes at reports.metix.ai: a complete, token-driven, **framework-free** design language for bilingual, data-heavy report pages. Use this when building report/whitepaper/mapping-style deliverables. It is the reference case for that artifact type (and a strong general template for "document-shaped products", complementing cd-html-design's two modes).
+The design system behind a series of published bilingual mapping reports: a complete, token-driven, **framework-free** design language for bilingual, data-heavy report pages. Use this when building report/whitepaper/mapping-style deliverables. It is the reference case for that artifact type (and a strong general template for "document-shaped products", complementing cd-html-design's two modes).
 
 Stack: single self-contained HTML file (~300KB), inline `<style>` (~17KB), zero frameworks, zero chart libraries, zero web fonts → instant paint, prints correctly, emailable as an artifact.
 
@@ -46,7 +46,7 @@ Page skeleton: sticky nav (blur 10px, 52px) → dark hero (tag pill / gradient-e
 - Callouts ×3: lilac+violet (note) / mint+teal (positive) / amber (warn).
 - **CSS bar chart** (the 80% case, no library): `grid-template-columns:190px 1fr 86px` → right-aligned ellipsized label / track `#F1EDFB` 22px r7 / fill `--grad` (or teal/soft variants) / value 700 with `<small>` in ink-40. Stacked bars = flex divs in a 26px rounded strip + swatch legend.
 - Company card: name 16.5/800 + baseline-aligned meta; number row (19/800, highlight gets gradient text); dashed `border-top` before description.
-- Candidate row: `border-left:3px solid var(--violet); border-radius:0 14px 14px 0`: accent bar as left rail.
+- Highlighted row: `border-left:3px solid var(--violet); border-radius:0 14px 14px 0`: accent bar as left rail.
 - Chips: 999px pills in violet/green/orange/slate.
 - Tables: th on `--lilac` with `border-bottom:2px solid #E3D8FF`; row hover `#FBFAFF`; numeric cells right-aligned `tabular-nums`.
 - **SVG only for complex figures** (flow/scatter/matrix): hand-written inline `<svg role="img">`, negative x-origin viewBox (e.g. `-190 0 1250 388`) to hang long CJK axis labels outside the plot; explicit font-family + 10.5-12.5px sizes on every `<text>`.
@@ -61,7 +61,7 @@ Page skeleton: sticky nav (blur 10px, 52px) → dark hero (tag pill / gradient-e
 ## Product mechanics in the design
 
 - **Bilingual dual-DOM:** every string twice as `<span class="zh">/<span class="en">`; toggled purely in CSS via `[data-lang]`; inline head script resolves `?lang` → localStorage → navigator.language BEFORE paint (no flash); nav pill switch.
-- **Blur-gate lead capture:** candidate names `filter:blur(5px)` + dashed underline (signals clickability); hover eases to blur(3.5px), **a tease, not a reveal**; click opens modal with `ojpop .26s cubic-bezier(.2,.9,.3,1.15)`, **the only bouncy easing on the page, reserved for the one thing that converts.**
+- **Blur-gate lead capture:** gated names `filter:blur(5px)` + dashed underline (signals clickability); hover eases to blur(3.5px), **a tease, not a reveal**; click opens modal with `pop .26s cubic-bezier(.2,.9,.3,1.15)`, **the only bouncy easing on the page, reserved for the one thing that converts.**
 
 ## Transferable lessons
 

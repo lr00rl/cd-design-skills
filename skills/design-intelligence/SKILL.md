@@ -53,7 +53,7 @@ Escalate Quick to Product for new or changed information architecture, navigatio
 | `references/micro-interactions.md` | At step 7: interaction catalog with timing/easing/spring numbers |
 | `references/signature-details.md` | At step 7: "wow detail" catalog (textures, glows, borders, cursors, empty/loading states…) |
 | `references/craft-details.md` | At steps 6-8 and any UI review: testable web design-engineering defaults (radius math, shadows, icon-swap params, typography exactness, OKLCH thresholds) |
-| `references/report-design-metix.md` | When building report/whitepaper/mapping-style pages: the Metix report design language (tokens, section rhythm, CSS charts, bilingual/print tactics) |
+| `references/report-design-case-study.md` | When building report/whitepaper/mapping-style pages: a bilingual data-report design language (tokens, section rhythm, CSS charts, bilingual/print tactics) |
 | `references/taste-and-inspiration.md` | When the user asks about taste, inspiration sources, or wants references to study |
 | `references/fundamentals/interaction-design.md` | When implementing controls, input, forms, overlays, keyboard behavior, or component interaction states |
 | `references/fundamentals/responsive-design.md` | When adapting a task/layout across viewport, orientation, input, window, or device context |
