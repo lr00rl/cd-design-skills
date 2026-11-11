@@ -1,6 +1,7 @@
 ---
 name: design-intelligence
-description: UI/UX and product design brain trust for web, apps, physical and hardware product concepts and companions, and cross-device workflows: user tasks, information architecture, navigation, flows, forms, state/feedback models, usability and accessibility validation, platform fit, visual direction, color, typography, layout, and interaction. Use when designing or reviewing a product experience, user flow, wireframe, navigation or form, operational UI, dashboard, component, Apple-platform concept, physical or hardware product and companion, landing page, or when the user asks for "好看/惊艳/眼前一亮/fancy" design, style advice, palettes, or interaction polish. Enforces purposeful, usable, responsible, distinctive, platform-appropriate output.
+description: >-
+  UI/UX and product design brain trust for web, apps, physical and hardware product concepts and companions, and cross-device workflows: user tasks, information architecture, navigation, flows, forms, state/feedback models, usability and accessibility validation, platform fit, visual direction, color, typography, layout, and interaction. Use when designing or reviewing a product experience, user flow, wireframe, navigation or form, operational UI, dashboard, component, Apple-platform concept, physical or hardware product and companion, landing page, or when the user asks for "好看/惊艳/眼前一亮/fancy" design, style advice, palettes, or interaction polish. Enforces purposeful, usable, responsible, distinctive, platform-appropriate output.
 ---
 
 # Design Intelligence
