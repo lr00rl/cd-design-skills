@@ -1,93 +1,60 @@
 ---
 name: cd-design-skill
 description: >-
-  Use when building, restyling, or reviewing anything that renders in a browser (pages, reports, dashboards, documents, components, HTML slides) and the result must look deliberate: the content's main point leads, every horizontal and vertical edge lines up, proportions hold, interaction feels alive, and the direction is not a template. Also use when a page looks crooked, flat, generic, or "off" and the cause is unclear, or when the user asks for 对齐, 比例, 重点突出, 灵动, 高级感, or 不要歪歪扭扭. Ships a structure-only CSS kernel and a layout audit that measures the rendered page instead of guessing.
+  Use when building, restyling, or reviewing anything that renders in a browser (pages, reports, dashboards, documents, components, HTML slides) and the result must look deliberate: the content's main point leads, edges line up horizontally and vertically, proportions hold, interaction feels alive, and the look fits the audience. Also use when a page looks crooked, flat, generic, or "off" and the cause is unclear, when the user points at a page whose style they like, or when the user asks for 对齐, 比例, 重点突出, 灵动, 高级感, or 不要歪歪扭扭. Ships a structure-only CSS kernel, a layout audit that measures the rendered page, and a probe that reads the visual language of a reference page.
 ---
 
 # CD design skill
 
-A model that writes a page cannot see it. It knows the principles of alignment and hierarchy and still ships a title 3px off the column line, because nothing told it so. This skill closes that loop with three parts that do different jobs:
+This skill gives direction and instruments. It does not prescribe a look. Palette, typeface, scale, radius, density, and how bold to be are decided for each piece of work, from its content, its reader, and what the user has shown they like. Where this skill or its references give a number, it is a starting point to adjust, not a rule.
+
+Two things a model cannot do by reasoning alone are why the instruments exist. It cannot see its own render, so a heading lands 3px off the column line and nothing tells it. And it cannot know the user's taste, so a mood chosen by guesswork gets rejected after the work is done.
 
 | Part | Job |
 |---|---|
-| This file | The order of work and the rules that decide between options. |
-| `assets/kernel.css` | Geometry only: a page grid, column lines, shared row lines, one spacing scale. It carries no colour, type, or character, so it cannot make two pages look alike. |
-| `scripts/layout-audit.js`, `scripts/layout-audit.mjs` | Measurement: reads the rendered page and reports each crooked edge with its size in pixels, its location, and the fix. |
+| This file | Direction and the order of work. |
+| `assets/kernel.css` | Geometry only: page lines, columns, shared row lines, one spacing scale. No colour, type, or character. Adopt it, adapt it, or map its ideas onto the project's own layout system. |
+| `scripts/layout-audit.js` and `.mjs` | Measures the rendered page and reports what is crooked, with size, location, and a fix. |
+| `scripts/style-probe.js` | Reads the visual language of any rendered page: colours by weight, faces, sizes, radii, shadows, design tokens. |
 
-There are no templates and no component library on purpose. A shipped look gets copied; a shipped measurement gets obeyed.
+## What to aim for
 
-## The order of work
+1. **Content leads.** Decide the one thing the reader should take away and let visual weight follow it. Design serves the content; anything that does not help the reader reach the point is a candidate for removal.
+2. **A deviation is zero or unmistakable.** Edges share a line or differ by a clear step. The same holds for sizes, gaps, and heights. Near-misses are what make a page look careless; deliberate asymmetry is welcome.
+3. **A few values, reused.** Space, type size, radius, and colour each come from a short set chosen for this page. How short is a judgment.
+4. **The look fits the reader.** Lively or restrained, bold or quiet: choose it for this audience and this subject, and prefer evidence of the user's taste over your own default. Being inventive is good when it helps the content land and the reader still trusts the page.
+5. **Interaction answers the reader.** Controls respond at once, show their state, work from the keyboard, and can be undone. Motion explains a change or it is left out.
+6. **One structure for every reader.** Real text, headings in order, labelled controls, content present without scripts: this serves people, assistive technology, and agents reading the page alike.
 
-Do these in order. Each step produces something small that the next step uses.
+## Order of work
 
-### 1. Brief: four lines before any markup
+1. **Understand.** Write down the point, the reader, what ranks first, and the mood, in a few lines. Derive them from the material. Ask only what the material cannot answer.
+2. **Find the direction before designing.** Look for evidence of taste first: a page the user likes, the product's existing screens, a brand. Run the probe on it and follow its roles (ground, ink, accent, type, card treatment) with values suited to the new page. With no evidence, show two or three cheap directions and let the user pick before polishing any of them. Do not invent a mood and build the whole page on it.
+3. **Build structure apart from look.** Put the look in a small set of custom properties so it can change without touching layout or behaviour. Use the kernel for geometry. Mark the lead with `data-lead` and chart marks with `data-mark`.
+4. **Measure.** Run the audit at the widths that matter. Fix what is crooked. Add checks of your own for what this page can get wrong (content without scripts, totals that must agree, states hidden by default).
+5. **Look, with eyes.** Measurement cannot tell whether a page is good. Take screenshots and judge them, operate the page, and compare with the reference. If you cannot view images, hand the screenshots to a reviewer that can, and say so. The user's reaction outranks every check.
+6. **Report.** What the point is, what direction was followed and why, what was measured, what was looked at and by whom, and what was not checked.
 
-```
-Point:   the one sentence a reader should leave with
-Reader:  who they are, and what they do after reading
-Rank:    the lead, then at most two supports; everything else is reference
-Mood:    three words taken from the subject, not from design fashion
-```
-
-Derive these from the material you were given. Ask the user one question only when the material cannot settle the point (two candidate leads that would produce different pages). A page with no stated point gets decorated instead of designed, and no later step can repair that.
-
-### 2. System: decide once, then reuse
-
-Fix a palette of four to six named values, two type roles, a type scale of five to seven sizes, the spacing scale, the grid, and one bold move (rule 4). Inside an existing product, extract its tokens and reuse them. If the `design-intelligence` skill is installed, use it to choose the style; this skill then governs how that style is executed and checked.
-
-### 3. Build on the kernel
-
-Copy `assets/kernel.css` into the page, or map each of its mechanisms onto the layout system the project already has. Put `data-lead` on the element that carries the point. Read `references/proportion-and-alignment.md` before laying out anything with more than one column.
-
-### 4. Measure
-
-Run the audit at desktop, tablet, and phone widths (see below). Fix every error. Read every warning and either fix it or say why it stands.
-
-### 5. Look
-
-Take one screenshot at 1440 and one at 375 with real content and judge what a measurement cannot: does the eye land on the lead first, does the page have the mood from the brief, would a reader remember one thing about it. Then operate it: every control with pointer and keyboard, every state.
-
-### 6. Report
-
-State the point, the bold move, the audit totals per width, each exempted finding with its reason, and what was not checked.
-
-## Rules that decide
-
-1. **Content leads.** Visual weight follows the rank in the brief. The lead is the largest or most contrasting thing on the first screen. Anything that does not help the reader reach the point (ornament, a second accent, a border around everything) is removed.
-2. **A deviation is zero or unmistakable.** Two edges either share a line or differ by a full step of the grid or spacing scale. The same holds for sizes, gaps, and heights. A 3px offset is a defect; a deliberate one-column offset is a decision. This one rule covers alignment and boldness together: asymmetry is welcome, near-misses are not.
-3. **One scale for each quantity.** Space, type size, radius, and border width each come from a short scale, and nothing sits between two steps.
-4. **Spend boldness once, on the lead.** Choose one move a template would not make (see `references/life-and-boldness.md`) and keep everything else quiet. A page with no such move is unfinished; a page with three is noise.
-5. **Motion and interaction answer the reader.** Every interactive element responds within 100ms, shows where it came from and what changed, and can be interrupted. Motion that explains nothing is removed.
-6. **One structure for every reader.** Landmarks, headings in order, real text, and labelled controls serve a screen reader, a keyboard user, and an agent reading the page equally. Content stays readable with scripts off.
-
-## Running the audit
-
-With a shell and a Chromium-based browser installed (Node 22 or newer, no packages to install):
+## Instruments
 
 ```bash
-node scripts/layout-audit.mjs /absolute/path/page.html
-node scripts/layout-audit.mjs http://localhost:3000/pricing --widths 1440,768,375
+node scripts/layout-audit.mjs <file-or-url> [--widths 1440,768,375] [--json] [--strict]
+node scripts/layout-audit.mjs <file-or-url> --probe
 ```
 
-It starts its own headless browser with a throwaway profile and does not touch a browser the user has open. Exit code 0 means no errors, 1 means errors (`--strict` counts warnings too), 2 means it could not run. Add `--json` for the full result.
+Both need Node 22 or newer and a Chromium-based browser, and start their own headless browser with a throwaway profile. With any other browser tool, evaluate the contents of `layout-audit.js` or `style-probe.js` in the page; each is one expression that returns its result.
 
-With any other browser tool, read `scripts/layout-audit.js` and evaluate its contents in the page at each width. It is a single expression that returns the result and also leaves it on `window.__layoutAudit`. Measure at 100 percent browser zoom: at other zoom levels a 1px border is no longer one CSS pixel and the reported sizes drift by a fraction.
+Reading the audit:
 
-Reading the result:
+- **Errors** are near-misses, overflow, and clipped text. Fix them, or mark a deliberate exception with `data-audit-ignore` and say why. Ignored subtrees and data marks are counted in the summary.
+- **Warnings** are prompts for judgment, not defects: ragged rows, a flat hierarchy, many type sizes, small targets, a lead that does not lead.
+- **The inventory** lists the column lines, sizes, and gaps in use, which shows whether a system exists.
 
-- An **error** is a near-miss, an overflow, or a clipped text. Fix it. If it is intended, wrap the element in `data-audit-ignore` and report the reason; the summary counts ignored subtrees so they cannot hide.
-- A **warning** needs judgment: ragged rows, a flat hierarchy, sizes too close together, a small target, a lead that is below the first screen or outranked.
-- The **inventory** lists the column lines, font sizes, and gaps in use. Many left edges used once means there is no grid. More than seven font sizes means there is no scale.
-
-The audit measures geometry. It cannot tell whether the page is beautiful, whether the point is the right one, or whether an image is well cropped, and on a large page with deliberate optical corrections it over-reports. Zero errors means nothing is crooked, not that the design is good; step 5 covers the rest.
-
-## When the page cannot be rendered
-
-Say so in the report instead of claiming the check passed. Then do what is still possible from source: confirm that every horizontal position comes from the grid, every gap from the scale, bordered and unbordered siblings have equal outer size, and no fixed width exceeds the smallest target viewport.
+Keep its limits in mind. It measures geometry only. A clean audit does not make a page good, and a page people like can still report findings: a published report the user held up as a model returned 26 errors and 22 type sizes. Use the audit to remove carelessness, never as the measure of quality.
 
 ## References
 
 | File | Read when |
 |---|---|
-| `references/proportion-and-alignment.md` | Before any layout with more than one column, and when the audit reports something you do not know how to fix. |
-| `references/life-and-boldness.md` | When choosing the bold move, adding motion or interaction, or when the result looks correct and dull. |
+| `references/proportion-and-alignment.md` | Laying out more than one column, building charts, or fixing something the audit reported. |
+| `references/life-and-boldness.md` | Choosing how bold to be, adding motion or interaction, or when the result is correct and dull. |
