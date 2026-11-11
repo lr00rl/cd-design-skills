@@ -6,6 +6,7 @@
 //
 //   node layout-audit.mjs <file-or-url> [--widths 1440,768,375] [--height 900]
 //                         [--json] [--strict]
+//   node layout-audit.mjs <file-or-url> --probe     print the page's visual language (style-probe.js) as JSON
 //
 // Exit code: 0 clean, 1 findings (errors, or warnings too with --strict),
 // 2 could not run.
@@ -44,13 +45,14 @@ function fail(message) {
 }
 
 function parseArgs(argv) {
-  const opts = { widths: [1440, 768, 375], height: 900, json: false, strict: false, target: null };
+  const opts = { widths: [1440, 768, 375], height: 900, json: false, strict: false, probe: false, target: null };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === '--widths') opts.widths = String(argv[++i]).split(',').map(Number);
     else if (arg === '--height') opts.height = Number(argv[++i]);
     else if (arg === '--json') opts.json = true;
     else if (arg === '--strict') opts.strict = true;
+    else if (arg === '--probe') opts.probe = true;
     else if (arg.startsWith('--')) fail(`unknown option ${arg}`);
     else if (opts.target) fail('give one file or URL');
     else opts.target = arg;
@@ -191,7 +193,8 @@ async function main() {
   if (typeof WebSocket === 'undefined') fail('needs Node 22 or newer. Otherwise evaluate scripts/layout-audit.js in the page with your own browser tool.');
   const url = targetUrl(opts.target);
   const browserPath = findBrowser();
-  const source = await readFile(join(HERE, 'layout-audit.js'), 'utf8');
+  const source = await readFile(join(HERE, opts.probe ? 'style-probe.js' : 'layout-audit.js'), 'utf8');
+  if (opts.probe) opts.widths = opts.widths.slice(0, 1);
   const profileDir = await mkdtemp(join(tmpdir(), 'layout-audit-'));
 
   let browser;
@@ -218,6 +221,7 @@ async function main() {
   }
   if (process.exitCode === 2) return;
 
+  if (opts.probe) { console.log(JSON.stringify(results[0], null, 2)); return; }
   if (opts.json) console.log(JSON.stringify(results, null, 2));
   else {
     console.log(`layout audit: ${url}`);

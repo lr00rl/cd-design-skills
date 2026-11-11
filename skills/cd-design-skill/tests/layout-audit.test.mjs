@@ -56,3 +56,13 @@ for (const width of ['1440', '375']) {
     }
   });
 }
+
+test('the style probe reads a page\'s palette and type scale', (t) => {
+  const run = spawnSync(process.execPath, [cli, join(here, 'fixtures', 'aligned.html'), '--probe'], { encoding: 'utf8' });
+  if (run.status === 2) return t.skip(run.stderr.trim());
+  const probe = JSON.parse(run.stdout);
+  assert.equal(probe.page.ground, 'rgb(255, 255, 255)');
+  assert.equal(probe.textColours[0].value, 'rgb(20, 33, 61)');
+  assert.equal(probe.tokens['--accent'], '#b3261e');
+  assert.ok(probe.sizes.some((s) => s.value.startsWith('56px')));
+});
