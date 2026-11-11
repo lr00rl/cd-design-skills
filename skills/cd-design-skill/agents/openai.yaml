@@ -1,0 +1,4 @@
+interface:
+  display_name: "CD Design Skill"
+  short_description: "Content-led design with measured alignment and proportion"
+  default_prompt: "Use $cd-design-skill to design this page: state the point, build on the geometry kernel, then run the layout audit and fix what it reports."

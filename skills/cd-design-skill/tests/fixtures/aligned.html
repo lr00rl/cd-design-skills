@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harbour freight: third quarter delivery review</title>
+<link rel="stylesheet" href="../../assets/kernel.css">
+<style>
+  /* Fixture for the layout audit: a page built on assets/kernel.css. The kernel
+     supplies the geometry; this block adds only the look. */
+  :root { --ink: #14213d; --muted: #5b6577; --line: #d5dae3; --wash: #eef2f7; --accent: #b3261e; --paper: #fff; }
+  body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.5 system-ui, sans-serif; }
+  h1, h2, h3, p, dl, dd { margin: 0; }
+  .page { row-gap: var(--s16); }
+
+  .masthead { border-bottom: var(--edge) solid var(--line); }
+  .masthead-row { display: flex; justify-content: space-between; align-items: center; height: var(--s16); }
+  .brand { font-weight: 700; }
+  .nav { display: flex; gap: var(--s6); font-size: 14px; }
+  .nav a { color: inherit; text-decoration: none; padding-block: var(--s2); }
+
+  h1 { font: 700 clamp(34px, 6vw, 56px)/1.1 Georgia, serif; letter-spacing: -0.01em; max-width: 18ch; }
+  h2 { font: 700 28px/1.2 Georgia, serif; }
+  h3 { font-size: 20px; line-height: 1.3; }
+  .lede { font-size: 20px; line-height: 1.5; color: var(--muted); max-width: 56ch; }
+
+  .actions { display: flex; gap: var(--s3); }
+  .btn {
+    display: inline-flex; align-items: center; height: 40px; padding: 0 var(--s4);
+    border: var(--edge) solid transparent; border-radius: 6px; font: inherit; font-size: 14px; cursor: pointer;
+    background: var(--ink); color: var(--paper);
+  }
+  .btn.quiet { background: transparent; color: var(--ink); border-color: var(--ink); }
+
+  .stat {
+    grid-column: span 3; grid-row: span 2; display: grid; grid-template-rows: subgrid; row-gap: var(--s2);
+    padding-top: var(--s4); border-top: 2px solid var(--ink);
+  }
+  .stat dt { font-size: 14px; color: var(--muted); }
+  .stat dd { font: 700 28px/1.2 Georgia, serif; }
+
+  .prose { grid-column: span 7; --stack-gap: var(--s4); align-content: start; }
+  .note { grid-column: span 5; --stack-gap: var(--s3); align-content: start; padding: var(--s6); background: var(--wash); border-radius: 8px; }
+  .inline-fact { display: flex; align-items: baseline; gap: var(--s3); }
+  .inline-fact span { font-size: 14px; color: var(--muted); }
+  .inline-fact strong { font: 700 28px/1.2 Georgia, serif; color: var(--accent); }
+
+  .card { border-color: var(--line); border-radius: 8px; }
+  .card p { color: var(--muted); }
+  .card a { color: var(--accent); font-size: 14px; align-self: end; padding-block: var(--s1); }
+
+  table { width: 100%; min-width: 560px; border-collapse: collapse; }
+  th, td { padding: var(--s3) var(--s4); text-align: left; border-bottom: var(--edge) solid var(--line); }
+  th { font-size: 14px; color: var(--muted); font-weight: 600; }
+  th:first-child, td:first-child { padding-left: 0; }
+  th:last-child, td:last-child { padding-right: 0; }
+  .num { text-align: right; }
+  caption { caption-side: bottom; padding-top: var(--s3); text-align: left; font-size: 14px; color: var(--muted); }
+
+  .colophon { border-top: var(--edge) solid var(--line); }
+  .colophon p { padding: var(--s6) 0; font-size: 14px; color: var(--muted); }
+
+  @media (max-width: 900px) {
+    .stat { grid-column: span 6; }
+    .prose, .note { grid-column: span 12; }
+    .lineup { --cols: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="band masthead">
+    <div class="masthead-row">
+      <span class="brand">Harbour freight</span>
+      <nav class="nav" aria-label="Sections">
+        <a href="#numbers">Numbers</a><a href="#causes">Causes</a><a href="#routes">Routes</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="stack">
+    <h1 data-lead>Late deliveries fell by a third once the night shift moved to the dock.</h1>
+    <p class="lede">The third quarter review covers 41,280 consignments across four routes. Most of the gain came from one scheduling change, and one route still needs attention.</p>
+    <div class="actions">
+      <button class="btn" type="button">Read the findings</button>
+      <button class="btn quiet" type="button">Download the data</button>
+    </div>
+  </section>
+
+  <section id="numbers" class="stack" aria-labelledby="numbers-title">
+    <h2 id="numbers-title">The quarter in four numbers</h2>
+    <dl class="cols figures">
+      <div class="stat"><dt>Consignments delivered</dt><dd>41,280</dd></div>
+      <div class="stat"><dt>Delivered late</dt><dd>6.4%</dd></div>
+      <div class="stat"><dt>Median delay when late</dt><dd>3 h 10 min</dd></div>
+      <div class="stat"><dt>Claims paid</dt><dd>$18,900</dd></div>
+    </dl>
+  </section>
+
+  <section id="causes" class="stack" aria-labelledby="causes-title">
+    <h2 id="causes-title">What changed</h2>
+    <div class="cols">
+      <div class="prose stack">
+        <p>Until July the night shift loaded trailers in the yard, a ten minute walk from the sorting floor. Moving the shift to the covered dock removed that walk and let two loaders share one scanner station.</p>
+        <p>The effect showed within two weeks. Trailers on the northern and coastal routes left on time on 96 of 100 nights, against 81 of 100 in the second quarter.</p>
+      </div>
+      <aside class="note stack">
+        <h3>Where the gain came from</h3>
+        <div class="inline-fact"><span>Share of the improvement from the dock move</span><strong>71%</strong></div>
+        <p>The rest came from earlier cut-off times for bulky freight.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="stack" aria-labelledby="next-title">
+    <h2 id="next-title">Three things to do next</h2>
+    <div class="lineup">
+      <article class="card boxed">
+        <h3>Fix the valley route handover</h3>
+        <p>Drivers on the valley route still wait for paperwork at the second depot. A shared manifest would remove the wait.</p>
+        <a href="#routes">See the valley route</a>
+      </article>
+      <article class="card boxed">
+        <h3>Keep the second scanner station through the winter peak, when volume doubles</h3>
+        <p>The station is on loan until November.</p>
+        <a href="#numbers">See the numbers</a>
+      </article>
+      <article class="card boxed">
+        <h3>Publish cut-off times</h3>
+        <p>Customers who know the bulky freight cut-off book earlier, which spreads the evening load across two more hours.</p>
+        <a href="#causes">See what changed</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="routes" class="stack" aria-labelledby="routes-title">
+    <h2 id="routes-title">Route by route</h2>
+    <div class="scroll figures">
+      <table>
+        <caption>Deliveries and lateness by route, third quarter</caption>
+        <thead>
+          <tr><th scope="col">Route</th><th scope="col" class="num">Consignments</th><th scope="col" class="num">Late</th><th scope="col" class="num">Change</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Northern</th><td class="num">14,020</td><td class="num">3.9%</td><td class="num">-4.1</td></tr>
+          <tr><th scope="row">Coastal</th><td class="num">11,760</td><td class="num">4.4%</td><td class="num">-3.6</td></tr>
+          <tr><th scope="row">City loop</th><td class="num">9,340</td><td class="num">6.0%</td><td class="num">-2.2</td></tr>
+          <tr><th scope="row">Valley</th><td class="num">6,160</td><td class="num">15.8%</td><td class="num">+0.7</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="band colophon">
+    <p>Figures cover 1 July to 30 September and exclude consignments cancelled before loading.</p>
+  </footer>
+</div>
+</body>
+</html>
