@@ -19,7 +19,7 @@ The `design-intelligence` description keeps a few Chinese trigger keywords (å¥½ç
 ./install.sh
 ```
 
-The script symlinks each skill into `~/.claude/skills/`, where Claude Code discovers it automatically. It is safe to run more than once.
+The script symlinks each skill into `~/.agents/skills/` (read by pi, Codex, and other agents that follow that convention) and `~/.claude/skills/` (Claude Code). It is safe to run more than once, and it removes links to skills that no longer exist in this repository. Agents that do not load skills on their own can be pointed at a skill's `SKILL.md` directly.
 
 ## Structure
 
