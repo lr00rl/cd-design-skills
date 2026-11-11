@@ -170,7 +170,7 @@ async function auditWidth(cdp, url, width, height, source) {
 
 function printReport(result) {
   const { viewport, summary, findings, inventory } = result;
-  console.log(`\n== ${viewport.width}px: ${summary.errors} errors, ${summary.warnings} warnings (${summary.elements} elements${summary.ignoredSubtrees ? `, ${summary.ignoredSubtrees} ignored subtrees` : ''})`);
+  console.log(`\n== ${viewport.width}px: ${summary.errors} errors, ${summary.warnings} warnings (${summary.elements} elements${summary.ignoredSubtrees ? `, ${summary.ignoredSubtrees} ignored subtrees` : ''}${summary.dataMarks ? `, ${summary.dataMarks} data marks` : ''})`);
   for (const f of findings) {
     console.log(`  ${f.severity === 'error' ? 'ERROR' : 'warn '} ${f.check}: ${f.message}`);
     for (const w of f.where || []) console.log(`        at ${w}`);

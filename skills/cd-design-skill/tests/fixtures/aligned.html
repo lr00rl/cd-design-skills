@@ -57,6 +57,14 @@
   .num { text-align: right; }
   caption { caption-side: bottom; padding-top: var(--s3); text-align: left; font-size: 14px; color: var(--muted); }
 
+  .bars { display: grid; grid-template-columns: max-content minmax(0, 1fr) max-content; column-gap: var(--s3); row-gap: var(--s2); align-items: center; }
+  .bars > * { display: grid; grid-template-columns: subgrid; grid-column: 1 / -1; align-items: center; }
+  .bars .track { height: var(--s3); background: var(--wash); }
+  .bars .track i { display: block; height: 100%; background: var(--ink); }
+
+  .badge { display: inline-grid; place-items: center; width: var(--s6); height: var(--s6); border-radius: 4px; background: var(--ink); color: var(--paper); font-size: 12px; }
+  summary { padding-block: var(--s1); font-size: 14px; cursor: pointer; }
+
   .colophon { border-top: var(--edge) solid var(--line); }
   .colophon p { padding: var(--s6) 0; font-size: 14px; color: var(--muted); }
 
@@ -106,8 +114,13 @@
       </div>
       <aside class="note stack">
         <h3>Where the gain came from</h3>
+        <p><span class="badge">Q3</span></p>
         <div class="inline-fact"><span>Share of the improvement from the dock move</span><strong>71%</strong></div>
         <p>The rest came from earlier cut-off times for bulky freight.</p>
+        <div class="bars figures">
+          <div><span>Dock move</span><span class="track"><i data-mark style="width: 71%"></i></span><span>71%</span></div>
+          <div><span>Earlier cut-off</span><span class="track"><i data-mark style="width: 70.2%"></i></span><span>29%</span></div>
+        </div>
       </aside>
     </div>
   </section>
@@ -150,6 +163,11 @@
       </table>
     </div>
   </section>
+
+  <details>
+    <summary>How the figures were counted</summary>
+    <p style="margin-left: 3px">A closed section is not rendered, so this nudged paragraph must not be measured.</p>
+  </details>
 
   <footer class="band colophon">
     <p>Figures cover 1 July to 30 September and exclude consignments cancelled before loading.</p>

@@ -24,6 +24,8 @@ test('a page built on the geometry kernel is clean at every width', (t) => {
     assert.deepEqual(result.findings, [], `findings at ${result.viewport.width}px`);
   }
   assert.match(out.results[0].inventory.lead, /h1/);
+  // two bars that end 2px apart are data, not a crooked edge
+  assert.equal(out.results[0].summary.dataMarks, 2);
 });
 
 const planted = [

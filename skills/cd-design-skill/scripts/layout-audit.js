@@ -11,9 +11,13 @@
  * fonts and images load and with animations finished or reduced motion on,
  * because a transform in flight moves the boxes being measured.
  *
- * Two attributes in the page talk to it. data-lead marks the one element the
+ * Three attributes in the page talk to it. data-lead marks the one element the
  * reader must see first, and the audit checks that the render agrees.
- * data-audit-ignore skips a subtree and is counted in the summary.
+ * data-mark goes on a chart mark whose size or position encodes a value (a bar,
+ * a stacked segment): its edges and heights are data, so they are not compared
+ * with layout lines. Put it on the mark only, never on the track or the axis
+ * that holds it, so a chart whose rows use different scales is still caught.
+ * data-audit-ignore skips a subtree entirely. Both are counted in the summary.
  */
 (() => {
   'use strict';
@@ -57,13 +61,14 @@
   const info = new Map();
   const list = [];
   let ignored = 0;
+  let marks = 0;
   let truncated = false;
 
   const bodyRect = doc.body.getBoundingClientRect();
   const bodyIt = {
     el: doc.body, cs: getComputedStyle(doc.body), tag: 'BODY', parent: null, kids: [],
     l: bodyRect.left + sx, t: bodyRect.top + sy, r: bodyRect.right + sx, b: bodyRect.bottom + sy,
-    w: bodyRect.width, h: bodyRect.height, abs: false, clipped: false, box: false,
+    w: bodyRect.width, h: bodyRect.height, abs: false, clipped: false, box: false, mark: false,
   };
   info.set(doc.body, bodyIt);
 
@@ -96,6 +101,8 @@
     if (list.length >= MAX_NODES) { truncated = true; break; }
     const cs = getComputedStyle(el);
     if (cs.display === 'none' || cs.visibility !== 'visible') continue;
+    // Content of a closed <details> still has boxes, but it is not rendered.
+    if (el.checkVisibility && !el.checkVisibility()) continue;
     const q = el.getBoundingClientRect();
     if (q.width < 1 || q.height < 1) continue;
     const tag = el.tagName.toUpperCase();
@@ -107,7 +114,9 @@
       abs: cs.position === 'absolute' || parent.abs,
       clipped: parent.clipped || (parent !== bodyIt && parent.cs.overflowX !== 'visible'),
       box: paintsBox(tag, cs),
+      mark: parent.mark || el.hasAttribute('data-mark'),
     };
+    if (it.mark && !parent.mark) marks += 1;
     info.set(el, it);
     list.push(it);
     parent.kids.push(it);
@@ -191,6 +200,12 @@
   const localAnchor = (it, side) => {
     const p = it.parent;
     if (!p) return true;
+    // An inline box that follows text on its line (a tag after a label) starts where the text ends.
+    if (side === 'L' && /^inline/.test(it.cs.display)) {
+      for (let n = it.el.previousSibling; n && n.nodeType !== 1; n = n.previousSibling) {
+        if (n.nodeType === 3 && n.nodeValue.trim()) return false;
+      }
+    }
     const display = p.cs.display;
     if (display.includes('grid')) {
       const self = it.cs.justifySelf === 'auto' ? p.cs.justifyItems : it.cs.justifySelf;
@@ -256,6 +271,8 @@
     const a = cs.textAlign;
     if (a.includes('center')) return null;
     if (/flex|grid/.test(cs.display) && !/^(normal|start|flex-start|left|stretch)$/.test(cs.justifyContent)) return null;
+    if (/grid/.test(cs.display) && /center/.test(cs.justifyItems)) return null;
+    if (/flex/.test(cs.display) && cs.flexDirection.startsWith('column') && /center/.test(cs.alignItems)) return null;
     const rtl = cs.direction === 'rtl';
     if (a === 'right' || (a === 'end' && !rtl) || (a === 'start' && rtl)) return 'R';
     return 'L';
@@ -269,7 +286,7 @@
   };
 
   for (const it of list) {
-    if (it.abs) continue;
+    if (it.abs || it.mark) continue;
     // Cell borders and fills run into the next cell, so a cell shows no edge of its own.
     if (it.box && it.cs.display !== 'table-cell') {
       if (anchored(it, 'L')) addEdge(it, it.l, 'L', 'box');
@@ -369,7 +386,8 @@
 
   for (const p of [bodyIt, ...list]) {
     if (!/flex|grid/.test(p.cs.display) || flow(p).length < 2) continue;
-    for (const row of rows(p)) {
+    for (const full of rows(p)) {
+      const row = full.filter((k) => !k.mark);
       if (row.length < 2) continue;
       const ref = row[0];
       const refBase = baseline(ref);
@@ -448,7 +466,7 @@
 
   for (const p of [bodyIt, ...list]) {
     const kids = flow(p);
-    if (kids.length < 3 || hasDirectText(p.el)) continue;
+    if (kids.length < 3 || hasDirectText(p.el) || kids.some((k) => k.mark)) continue;
     const rs = rows(p);
     if (rs.length === kids.length) {
       const gaps = [];
@@ -625,6 +643,7 @@
       warnings: findings.filter((f) => f.severity === 'warn').length,
       elements: list.length,
       ignoredSubtrees: ignored,
+      dataMarks: marks,
       truncated,
       notShown: hidden,
     },
