@@ -1,6 +1,7 @@
 ---
 name: design-intelligence
-description: UI/UX and product design brain trust for web, apps, physical and hardware product concepts and companions, and cross-device workflows: user tasks, information architecture, navigation, flows, forms, state/feedback models, usability and accessibility validation, platform fit, visual direction, color, typography, layout, and interaction. Use when designing or reviewing a product experience, user flow, wireframe, navigation or form, operational UI, dashboard, component, Apple-platform concept, physical or hardware product and companion, landing page, or when the user asks for "好看/惊艳/眼前一亮/fancy" design, style advice, palettes, or interaction polish. Enforces purposeful, usable, responsible, distinctive, platform-appropriate output.
+description: >-
+  UI/UX and product design brain trust for web, apps, physical and hardware product concepts and companions, and cross-device workflows: user tasks, information architecture, navigation, flows, forms, state/feedback models, usability and accessibility validation, platform fit, visual direction, color, typography, layout, and interaction. Use when designing or reviewing a product experience, user flow, wireframe, navigation or form, operational UI, dashboard, component, Apple-platform concept, physical or hardware product and companion, landing page, or when the user asks for "好看/惊艳/眼前一亮/fancy" design, style advice, palettes, or interaction polish. Enforces purposeful, usable, responsible, distinctive, platform-appropriate output.
 ---
 
 # Design Intelligence
@@ -63,7 +64,7 @@ Escalate Quick to Product for new or changed information architecture, navigatio
 
 ## Sibling skill
 
-- **`../cd-html-design/`**: the restrained CD house language for dense documents, handbooks, reports, and internal guides, with an executable validator. **Artifact and audience decide:** operational documents/reports/internal guides → use cd-html-design and its rules (system fonts, hairline borders, flat surfaces). Public technical storytelling, OSS/CLI launches, and text-native developer products may use Annotated Developer Editorial from THIS skill. Marketing, product UI, dashboards, and creative/portfolio pages also use THIS skill. Never blend the two rulebooks on one page.
+- **`../cd-design-skill/`**: execution and measurement for anything that renders in a browser. After this skill has chosen the structure and style, build on its geometry kernel (`assets/kernel.css`), mark the lead element, and run its layout audit (`scripts/layout-audit.mjs`) at step 8. It reports crooked edges, uneven gaps, overflow, and a lead that does not lead, each with a location and a fix. It carries no style of its own, so it never conflicts with a style chosen here.
 
 ## Arbitration defaults
 

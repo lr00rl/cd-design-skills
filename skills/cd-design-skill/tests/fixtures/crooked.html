@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crooked fixture</title>
+<style>
+  /* Fixture for the layout audit. Every section holds one deliberate defect,
+     named by its id. Do not tidy this file. */
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.5 system-ui, sans-serif; color: #222; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+  h1 { font-size: 20px; margin: 24px 0; }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  p { margin: 0 0 12px; }
+  section { margin-bottom: 48px; }
+
+  #edge .nudged { margin-left: 3px; }
+
+  .panel { border: 1px solid #999; padding: 16px; margin-bottom: 12px; }
+  .panel.overhang { box-sizing: content-box; width: 100%; padding: 16px 0; }
+
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+  .card { border: 1px solid #999; padding: 20px; }
+  .card h3 { font-size: 18px; margin: 0 0 8px; }
+  .card a { display: block; }
+
+  .buttons { display: flex; gap: 12px; align-items: center; }
+  .buttons button { font: inherit; padding: 10px 16px; border: 0; background: #222; color: #fff; }
+  .buttons button.ghost { background: none; color: #222; border: 1px solid #222; }
+
+  .block { height: 40px; background: #ddd; margin-bottom: 24px; }
+  .block.short { margin-bottom: 22px; }
+
+  .fact { display: flex; gap: 12px; align-items: flex-start; }
+  .fact .label { font-size: 14px; line-height: 20px; }
+  .fact .value { font-size: 24px; line-height: 30px; margin-top: 2px; }
+
+  #type p { font-size: 15px; }
+
+  .clip { width: 120px; white-space: nowrap; overflow: hidden; }
+
+  .tiny { width: 16px; height: 16px; padding: 0; border: 0; background: #222; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>A page with one defect per section</h1>
+
+  <section id="edge">
+    <h2>Left edge off by three pixels</h2>
+    <p>This paragraph starts on the column line.</p>
+    <p class="nudged">This paragraph carries a stray margin and starts three pixels to the right.</p>
+  </section>
+
+  <section id="right-edge">
+    <h2>Right edge overhangs by two pixels</h2>
+    <div class="panel">This panel ends on the column line.</div>
+    <div class="panel overhang">This panel is full width plus its border, so it ends two pixels past the line.</div>
+  </section>
+
+  <section id="cards">
+    <h2>Cards with ragged heights and ragged inner rows</h2>
+    <div class="cards">
+      <article class="card"><h3>Short title</h3><p>One line of text.</p><a href="#edge">Open</a></article>
+      <article class="card"><h3>A much longer title that wraps onto a second and a third line</h3><p>One line of text.</p><a href="#edge">Open</a></article>
+      <article class="card"><h3>Medium title here</h3><p>Text that runs long enough to wrap onto several lines inside a narrow card and push the link down.</p><a href="#edge">Open</a></article>
+    </div>
+  </section>
+
+  <section id="buttons">
+    <h2>Buttons two pixels apart in height</h2>
+    <div class="buttons"><button type="button">Save</button><button type="button" class="ghost">Cancel</button></div>
+  </section>
+
+  <section id="gaps">
+    <h2>Gaps of 24 and 22 in one stack</h2>
+    <div class="stack">
+      <div class="block"></div><div class="block"></div><div class="block short"></div><div class="block"></div>
+    </div>
+  </section>
+
+  <section id="row">
+    <h2>Row items that share no line</h2>
+    <div class="fact"><span class="label">Late deliveries</span><span class="value">6.4%</span></div>
+  </section>
+
+  <section id="overflow">
+    <h2>Code wider than the page</h2>
+    <pre>curl --request POST --url https://api.example.test/v1/consignments/41280/reschedule --header "content-type: application/json" --data '{"window":"2026-11-02T06:00/2026-11-02T10:00","reason":"dock-move","notify":true}' --retry 3 --max-time 20</pre>
+  </section>
+
+  <section id="type">
+    <h2>Two sizes one pixel apart</h2>
+    <p>This paragraph is set at fifteen pixels beside sixteen pixel body text.</p>
+  </section>
+
+  <section id="clip">
+    <h2>Text cut off with no ellipsis</h2>
+    <div class="clip" data-lead>Consignment reference HF-2026-0041280-NORTH</div>
+  </section>
+
+  <section id="target">
+    <h2>A sixteen pixel button</h2>
+    <button type="button" class="tiny" aria-label="Dismiss"></button>
+  </section>
+</main>
+</body>
+</html>

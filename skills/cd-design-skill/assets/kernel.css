@@ -1,0 +1,64 @@
+/*
+ * Geometry kernel: structure only. It fixes where edges fall and leaves every
+ * choice about colour, type, and character to the page. Copy it, rename the
+ * classes to fit the project, and keep the mechanisms.
+ *
+ * In a project that already has a layout system, do not add this file: map
+ * each mechanism onto that system instead.
+ */
+
+:root {
+  /* One spacing scale. Every gap and inset on the page is one of these steps. */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s6: 24px; --s8: 32px; --s12: 48px; --s16: 64px; --s24: 96px;
+
+  --page-max: 1120px;                    /* width of the content column */
+  --page-pad: clamp(20px, 5vw, 48px);    /* smallest page margin */
+  --edge: 1px;                           /* border width, subtracted from padding below */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/*
+ * The page grid. Every block sits on the two content lines. A band runs edge to
+ * edge for its background or rule while its content returns to the same two
+ * lines, so no container ever needs a negative margin to break out.
+ */
+.page {
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(var(--page-pad), 1fr)
+    [content-start] minmax(0, var(--page-max)) [content-end]
+    minmax(var(--page-pad), 1fr) [full-end];
+}
+.page > * { grid-column: content; min-width: 0; }
+.page > .band { grid-column: full; display: grid; grid-template-columns: subgrid; }
+.band > * { grid-column: content; min-width: 0; }
+
+/* Twelve column lines inside the content column. Children choose a span. */
+.cols { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--s6); row-gap: var(--s8); }
+.cols > * { min-width: 0; }
+
+/* Vertical rhythm comes from the parent's gap, never from margins on children. */
+.stack { display: grid; row-gap: var(--stack-gap, var(--s6)); }
+.stack > * { margin-block: 0; min-width: 0; }
+
+/*
+ * Siblings in a row share their inner row lines: when one title wraps, the text
+ * and the action under it move in every sibling. Set --rows to the number of
+ * parts each sibling has. A sibling that sits in .cols instead can take the
+ * same three declarations and keep its column span.
+ */
+.lineup { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); column-gap: var(--s6); row-gap: var(--s6); }
+.lineup > * { display: grid; grid-template-rows: subgrid; grid-row: span var(--rows, 3); row-gap: var(--s3); min-width: 0; }
+
+/*
+ * A bordered box keeps its text on the same line as an unbordered neighbour:
+ * the border is taken out of the padding.
+ */
+.boxed { padding: calc(var(--inset, var(--s6)) - var(--edge)); border: var(--edge) solid; }
+
+/* Wide content scrolls inside its own box. The page never scrolls sideways. */
+.scroll { overflow-x: auto; }
+
+/* Figures that are compared share digit widths. */
+.figures { font-variant-numeric: tabular-nums; }

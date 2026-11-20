@@ -1,6 +1,6 @@
 # Case study: a bilingual data-report design language (document-shaped data products)
 
-The design system behind a series of published bilingual mapping reports: a complete, token-driven, **framework-free** design language for bilingual, data-heavy report pages. Use this when building report/whitepaper/mapping-style deliverables. It is the reference case for that artifact type (and a strong general template for "document-shaped products", complementing cd-html-design's two modes).
+The design system behind a series of published bilingual mapping reports: a complete, token-driven, **framework-free** design language for bilingual, data-heavy report pages. Use this when building report/whitepaper/mapping-style deliverables. It is the reference case for that artifact type (and a strong general template for "document-shaped products").
 
 Stack: single self-contained HTML file (~300KB), inline `<style>` (~17KB), zero frameworks, zero chart libraries, zero web fonts → instant paint, prints correctly, emailable as an artifact.
 
