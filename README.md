@@ -1,4 +1,4 @@
-# cd-design-skill: design skills repository
+# cd-design-skills
 
 One repository for design-focused AI agent skills. Every design-related skill lives here, self-contained, versioned, and portable across machines.
 
